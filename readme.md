@@ -1,0 +1,67 @@
+# screenfull.js
+
+Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode).  
+You can read more about the Fullscreen API on [hacks.mozilla.org](http://hacks.mozilla.org/2012/01/using-the-fullscreen-api-in-web-browsers/).
+
+### [Demo](http://sindresorhus.com/screenfull.js/)
+
+
+## Support
+
+- Chrome 15+
+- Firefox 10+
+- Safari 5.1+
+
+Chrome is currently the only browser that allow the use of keyboard in fullscreen.
+
+
+## Usage
+
+### Example
+
+Fullscreen the document:
+
+```javascript
+if ( screenfull ) {
+	screenfull.request();
+}
+```
+
+View source on the demo for more examples.
+
+You can check for fullscreen support by checking the truthy/falsy value of `screenfull`.
+
+### Methods
+
+- `.request()` takes a DOM element, if nothing is specified it will fullscreen the document. If called with another element than the current active one, it will switch to that..
+
+- `.exit()` takes you out of fullscreen.
+
+- `.toggle()` requests fullscreen if it's not active, otherwise exits.
+
+- `.onchange()` override this method to get notified about fullscreen changes.
+
+### Parameters
+
+- `.isFullscreen` boolean to tell if fullscreen is active.
+
+- `.element` returns the currently fullscreened element, otherwise `null`.
+
+
+## Contribute
+
+Requires [node.js][0] and [grunt][0] (`npm install -g grunt`).
+
+[0]: http://nodejs.org/#download
+[1]: https://github.com/cowboy/grunt
+
+- Fork this repo
+- Tweak the code
+- Run `grunt` to lint and minify
+- Make a pull request
+
+
+## License
+
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+(c) [Sindre Sorhus](http://sindresorhus.com)

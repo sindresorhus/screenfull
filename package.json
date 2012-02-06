@@ -1,0 +1,23 @@
+{
+	"name": "screenfull.js",
+	"description": "Simple wrapper for cross-browser usage of the Fullscreen API.",
+	"version": "0.1",
+	"keywords": [
+		"fullscreen"
+	],
+	"homepage": "http://sindresorhus.com",
+	"author": {
+		"name": "Sindre Sorhus"
+	},
+	"bugs": {
+		"web": "https://github.com/sindresorhus/screenfull.js/issues",
+		"mail": "sindresorhus@gmail.com"
+	},
+	"licenses": [{
+		"type": "MIT"
+	}],
+	"repositories": [{
+		"type": "git",
+		"url": "git@github.com:sindresorhus/screenfull.js.git"
+	}]
+}
