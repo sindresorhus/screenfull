@@ -59,6 +59,24 @@
 		list-style: none;
 	}
 	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>screenfull<span>.js</span></h1>
+		<nav>
+			<button id="request">Request</button>
+			<button id="exit">Exit</button>
+			<button id="toggle">Toggle</button>
+			<button id="request2">Request document</button>
+		</nav>
+		<ul>
+			<li id="supported"></li>
+			<li id="status"></li>
+			<li id="element"></li>
+		</ul>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="src/screenfull.js"></script>
 	<script>
 	$(function() {
 
@@ -98,23 +116,5 @@
 
 	});
 	</script>
-</head>
-<body>
-	<div id="container">
-		<h1>screenfull<span>.js</span></h1>
-		<nav>
-			<button id="request">Request</button>
-			<button id="exit">Exit</button>
-			<button id="toggle">Toggle</button>
-			<button id="request2">Request document</button>
-		</nav>
-		<ul>
-			<li id="supported"></li>
-			<li id="status"></li>
-			<li id="element"></li>
-		</ul>
-	</div>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-	<script src="src/screenfull.js"></script>2
 </body>
 </html>
