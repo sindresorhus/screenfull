@@ -1,25 +1,55 @@
-/*global config:true, task:true*/
-config.init({
-	min: {
-		'screenfull.min.js': 'screenfull.js'
-	},
-	lint: {
-		files: 'screenfull.js'
-	},
-	jshint: {
-		options: {
-			curly: true,
-			eqeqeq: true,
-			latedef: true,
-			newcap: true,
-			noarg: true,
-			sub: true,
-			undef: true,
-			eqnull: true,
-			browser: true
-		}
-	}
-});
+module.exports = function( grunt ) {
+	'use strict';
 
-// Default task
-task.registerTask('default', 'lint min');
+	grunt.initConfig({
+		pkg: '<json:package.json>',
+		meta: {
+			banner: '/*!\n' +
+				'* <%= pkg.name %>\n' +
+				'* v<%= pkg.version %> - ' +
+				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+				'<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
+				'* (c) <%= pkg.author.name %>;' +
+				' <%= _.pluck(pkg.licenses, "type").join(", ") %> License\n' +
+				'*/'
+		},
+		concat: {
+			dist: {
+				src: ['<banner:meta.banner>', 'src/screenfull.js>'],
+				dest: 'dist/screenfull.js'
+			}
+		},
+		min: {
+			dist: {
+				src: ['<banner:meta.banner>', 'src/screenfull.js'],
+				dest: 'dist/screenfull.min.js'
+			}
+		},
+		lint: {
+			files: '<%= pkg.name %>.js'
+		},
+		jshint: {
+			options: {
+				es5: true,
+				esnext: true,
+				bitwise: true,
+				curly: true,
+				eqeqeq: true,
+				newcap: true,
+				noarg: true,
+				noempty: true,
+				regexp: true,
+				undef: true,
+				strict: true,
+				trailing: true,
+				smarttabs: true,
+				browser: true,
+				nonstandard: true,
+				expr: true
+			}
+		}
+	});
+
+	grunt.registerTask('default', 'lint concat min');
+
+};
