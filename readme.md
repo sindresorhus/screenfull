@@ -1,6 +1,7 @@
 # screenfull.js
 
-Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smooths out the various differences in each browsers implementation so you don't have too.
+Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen.  
+Smooths out the various differences in each browsers implementation so you don't have too.
 
 
 ### [Demo](http://sindresorhus.com/screenfull.js/)
@@ -10,7 +11,7 @@ Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js.min
+[min]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.min.js
 [max]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js
 
 
