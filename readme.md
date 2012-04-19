@@ -1,7 +1,7 @@
 # screenfull.js
 
-Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode).  
-You can read more about the Fullscreen API on [hacks.mozilla.org](http://hacks.mozilla.org/2012/01/using-the-fullscreen-api-in-web-browsers/).
+Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smooths out the various differences in each browsers implementation so you don't have too.
+
 
 ### [Demo](http://sindresorhus.com/screenfull.js/)
 
@@ -10,8 +10,8 @@ You can read more about the Fullscreen API on [hacks.mozilla.org](http://hacks.m
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js.min.js
-[max]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js.js
+[min]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js.min
+[max]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js
 
 
 ## Support
@@ -20,10 +20,12 @@ Download the [production version][min] or the [development version][max].
 - Firefox 10+
 - Safari 5.1+
 
-Chrome is currently the only browser that allow use of the keyboard when fullscreen.
+Safari 5.1 doesn't support use of the keyboard in fullscreen.
+
 
 
 ## Usage
+
 
 ### Example
 
@@ -39,27 +41,40 @@ View source on the demo for more examples.
 
 You can check for fullscreen support by checking the truthy/falsy value of `screenfull`.
 
+
 ### Methods
 
-#### .request( /* DOM element */ )
-Accepts a DOM element, if nothing is specified it will fullscreen the document. If called with another element than the current active one, it will switch to that.
+#### .request()
+
+Accepts a DOM element, otherwise it will use the <html>`. If called with another element than the current active one, it will switch to that.
 
 #### .exit()
+
 Brings you out of fullscreen.
 
 #### .toggle()
-Requests fullscreen if it's not active, otherwise exits.
+
+Requests fullscreen if not active, otherwise exits.
 
 #### .onchange()
+
 Override this method to get notified about fullscreen changes.
+
 
 ### Parameters
 
 #### .isFullscreen
-Boolean to check if fullscreen is active.
+
+Returns a boolean whetever fullscreen is active.
 
 #### .element
-Currently fullscreened element, otherwise `null`.
+
+Returns the element currently in fullscreen, otherwise `null`.
+
+
+## Resources
+
+- [Using the Fullscreen API in web browsers](http://hacks.mozilla.org/2012/01/using-the-fullscreen-api-in-web-browsers/)
 
 
 ## Contribute
