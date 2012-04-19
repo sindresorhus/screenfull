@@ -15,7 +15,7 @@ module.exports = function( grunt ) {
 		},
 		concat: {
 			dist: {
-				src: ['<banner:meta.banner>', 'src/screenfull.js>'],
+				src: ['<banner:meta.banner>', 'src/screenfull.js'],
 				dest: 'dist/screenfull.js'
 			}
 		},
@@ -26,7 +26,7 @@ module.exports = function( grunt ) {
 			}
 		},
 		lint: {
-			files: '<%= pkg.name %>.js'
+			files: 'src/screenfull.js'
 		},
 		jshint: {
 			options: {
