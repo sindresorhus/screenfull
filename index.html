@@ -1,105 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="author" content="Sindre Sorhus">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>screenfull.js demo</title>
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script src="screenfull.js"></script>
-<style>
-html {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	padding: 70px 10px 0 10px;
-	font-size: 20px;
-	line-height: 1.4;
-	color: #737373;
-	background: #f0f0f0;
-}
-
-h1 {
-	margin-top: 10px;
-	font-size: 50px;
-	text-align: center;
-}
-
-h1 span {
-	color: #bbb;
-}
-
-ul {
-	padding: 0 0 0 40px;
-	margin: 1em 0;
-}
-
-button {
-	font-size: 13px;
-}
-
-nav {
-	margin: 0 auto;
-}
-
-#container {
-	width: 500px;
-	padding: 30px 20px 50px;
-	margin: 0 auto;
-	background: #fcfcfc;
-	text-align: center;
-	border: 1px solid #b3b3b3;
-	border-radius: 4px;
-	box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
-}
-
-#container ul {
-	padding: 0;
-	margin: 40px 0 0 0;
-	list-style: none;
-}
-</style>
-<script>
-$(function() {
-
-	$('#supported').text( 'Supported: ' + !!screenfull );
-
-	if ( !screenfull ) {
-		return false;
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="Sindre Sorhus">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>screenfull.js demo</title>
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style>
+	html {
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		padding: 70px 10px 0 10px;
+		font-size: 20px;
+		line-height: 1.4;
+		color: #737373;
+		background: #f0f0f0;
 	}
 
-	$('#request').click(function() {
-		screenfull.request( $('#container')[0] );
-		// Does not require jQuery, can be used like this too:
-		// screenfull.request( document.getElementById('container') );
-	});
+	h1 {
+		margin-top: 10px;
+		font-size: 50px;
+		text-align: center;
+	}
 
-	$('#exit').click(function() {
-		screenfull.exit();
-	});
+	h1 span {
+		color: #bbb;
+	}
 
-	$('#toggle').click(function() {
-		screenfull.toggle( $('#container')[0] );
-	});
+	ul {
+		padding: 0 0 0 40px;
+		margin: 1em 0;
+	}
 
-	$('#request2').click(function() {
-		screenfull.request();
-	});
+	button {
+		font-size: 13px;
+	}
 
-	screenfull.onchange = function(e) {
-		$('#status').text( 'Is fullscreen: ' + screenfull.isFullscreen );
-		var elem = screenfull.element;
-		if ( elem ) {
-			$('#element').text( 'Element: ' + elem.localName + ( elem.id ? '#' + elem.id : '' ) );
+	nav {
+		margin: 0 auto;
+	}
+
+	#container {
+		width: 500px;
+		padding: 30px 20px 50px;
+		margin: 0 auto;
+		background: #fcfcfc;
+		text-align: center;
+		border: 1px solid #b3b3b3;
+		border-radius: 4px;
+		box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+	}
+
+	#container ul {
+		padding: 0;
+		margin: 40px 0 0 0;
+		list-style: none;
+	}
+	</style>
+	<script>
+	$(function() {
+
+		$('#supported').text( 'Supported: ' + !!screenfull );
+
+		if ( !screenfull ) {
+			return false;
 		}
-	};
 
-	screenfull.onchange();
+		$('#request').click(function() {
+			screenfull.request( $('#container')[0] );
+			// Does not require jQuery, can be used like this too:
+			// screenfull.request( document.getElementById('container') );
+		});
 
-});
-</script>
+		$('#exit').click(function() {
+			screenfull.exit();
+		});
+
+		$('#toggle').click(function() {
+			screenfull.toggle( $('#container')[0] );
+		});
+
+		$('#request2').click(function() {
+			screenfull.request();
+		});
+
+		screenfull.onchange = function(e) {
+			$('#status').text( 'Is fullscreen: ' + screenfull.isFullscreen );
+			var elem = screenfull.element;
+			if ( elem ) {
+				$('#element').text( 'Element: ' + elem.localName + ( elem.id ? '#' + elem.id : '' ) );
+			}
+		};
+
+		screenfull.onchange();
+
+	});
+	</script>
 </head>
 <body>
 	<div id="container">
@@ -116,5 +114,7 @@ $(function() {
 			<li id="element"></li>
 		</ul>
 	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="src/screenfull.js"></script>2
 </body>
 </html>
