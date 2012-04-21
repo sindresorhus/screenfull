@@ -35,6 +35,7 @@ module.exports = function( grunt ) {
 				bitwise: true,
 				curly: true,
 				eqeqeq: true,
+				latedef: true,
 				newcap: true,
 				noarg: true,
 				noempty: true,
@@ -44,8 +45,7 @@ module.exports = function( grunt ) {
 				trailing: true,
 				smarttabs: true,
 				browser: true,
-				nonstandard: true,
-				expr: true
+				nonstandard: true
 			}
 		}
 	});
