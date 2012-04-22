@@ -124,6 +124,7 @@ Returns the element currently in fullscreen, otherwise `null`.
 
 - [Using the Fullscreen API in web browsers](http://hacks.mozilla.org/2012/01/using-the-fullscreen-api-in-web-browsers/)
 - [MDN - Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode)
+- [W3C Fullscren spec](http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html)
 
 
 ## Contribute
@@ -135,5 +136,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 
-MIT License  
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)
 (c) [Sindre Sorhus](http://sindresorhus.com)
