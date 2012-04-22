@@ -1,10 +1,9 @@
 # screenfull.js
 
-Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen.  
-Smoothens out the browser implementation differences, so you don't have too.
+Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have too.
 
 
-### [Demo](http://sindresorhus.com/screenfull.js/)
+### [Demo](http://sindresorhus.com/screenfull.js)
 
 
 ## Download
@@ -25,22 +24,51 @@ Safari 5.1 doesn't support use of the keyboard in fullscreen.
 
 
 
-## Usage
+## Documentation
 
 
-### Example
+### Examples
 
-Fullscreen the document:
+
+#### Fullscreen the page
 
 ```javascript
-if ( screenfull ) {
-	screenfull.request();
+document.getElementById('#button').addEventLister('click', function() {
+	if ( screenfull ) {
+		screenfull.request();
+	}
+});
+```
+
+
+#### Fullscreen an element
+
+```javascript
+...
+var elem = document.getElementById('#target');
+screenfull.request( elem );
+...
 }
 ```
 
-View source on the demo for more examples.
 
-You can check for fullscreen support by checking the truthy/falsy value of `screenfull`.
+#### Fullscreen an element with jQuery
+
+```javascript
+...
+// Get the DOM element from the jQuery collection
+var elem = $('#target')[0];
+screenfull.request( elem );
+...
+}
+```
+
+
+See the [demo](http://sindresorhus.com/screenfull.js) for more examples, and view the source.
+
+You can check for fullscreen support by checking the truthy/falsy value of `screenfull` as done in the example above.
+
+*Keep in mind that the browser will only enter fullscreen when initiated by the user, like click.*
 
 
 ### Methods
@@ -77,6 +105,7 @@ Returns the element currently in fullscreen, otherwise `null`.
 ## Resources
 
 - [Using the Fullscreen API in web browsers](http://hacks.mozilla.org/2012/01/using-the-fullscreen-api-in-web-browsers/)
+- [MDN - Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode)
 
 
 ## Contribute
@@ -88,5 +117,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+MIT License
 (c) [Sindre Sorhus](http://sindresorhus.com)
