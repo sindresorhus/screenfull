@@ -1,7 +1,7 @@
 # screenfull.js
 
 Simple wrapper for cross-browser usage of the [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen.  
-Smooths out the various differences in each browsers implementation so you don't have too.
+Smoothens out the browser implementation differences, so you don't have too.
 
 
 ### [Demo](http://sindresorhus.com/screenfull.js/)
@@ -47,7 +47,8 @@ You can check for fullscreen support by checking the truthy/falsy value of `scre
 
 #### .request()
 
-Accepts a DOM element, otherwise it will use the <html>`. If called with another element than the current active one, it will switch to that.
+Accepts a DOM element. Default is `<html>`.  
+If called with another element than the currently active, it will switch to that.
 
 #### .exit()
 
@@ -66,7 +67,7 @@ Override this method to get notified about fullscreen changes.
 
 #### .isFullscreen
 
-Returns a boolean whetever fullscreen is active.
+Returns a boolean whether fullscreen is active.
 
 #### .element
 
