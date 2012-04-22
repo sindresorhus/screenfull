@@ -33,9 +33,11 @@ Safari 5.1 doesn't support use of the keyboard in fullscreen.
 #### Fullscreen the page
 
 ```javascript
-document.getElementById('#button').addEventLister('click', function() {
+document.getElementById('#button').addEventListener('click', function() {
 	if ( screenfull ) {
 		screenfull.request();
+	} else {
+		// Ignore or do something else
 	}
 });
 ```
@@ -44,23 +46,39 @@ document.getElementById('#button').addEventLister('click', function() {
 #### Fullscreen an element
 
 ```javascript
-...
 var elem = document.getElementById('#target');
-screenfull.request( elem );
-...
-}
+document.getElementById('#button').addEventListener('click', function() {
+	screenfull.request( elem );
+});
 ```
 
 
 #### Fullscreen an element with jQuery
 
 ```javascript
-...
-// Get the DOM element from the jQuery collection
-var elem = $('#target')[0];
-screenfull.request( elem );
-...
-}
+var target = $('#target')[0]; // Get DOM element from jQuery collection
+$('#button').click(function() {
+	screenfull.request( target );
+});
+```
+
+
+#### Toggle fullscreen on a image with jQuery
+
+```javascript
+$('img').click(function() {
+	// We can use `this` since we want the clicked element
+	screenfull.toggle( this );
+});
+```
+
+
+#### Detect fullscreen change
+
+```javascript
+screenfull.onchange = function() {
+	console.log( 'Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No' );
+};
 ```
 
 
