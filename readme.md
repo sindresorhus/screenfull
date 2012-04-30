@@ -93,8 +93,7 @@ You can check for fullscreen support by checking the truthy/falsy value of `scre
 
 #### .request()
 
-Accepts a DOM element. Default is `<html>`.  
-If called with another element than the currently active, it will switch to that.
+Accepts a DOM element. Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
 
 #### .exit()
 
@@ -107,6 +106,10 @@ Requests fullscreen if not active, otherwise exits.
 #### .onchange()
 
 Override this method to get notified about fullscreen changes.
+
+#### .onerror()
+
+Override this method to get notified about fullscreen errors.
 
 
 ### Parameters
@@ -125,6 +128,11 @@ Returns the element currently in fullscreen, otherwise `null`.
 - [Using the Fullscreen API in web browsers](http://hacks.mozilla.org/2012/01/using-the-fullscreen-api-in-web-browsers/)
 - [MDN - Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode)
 - [W3C Fullscren spec](http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html)
+
+
+## Known inconsistencies
+
+Chrome 18 doesn't follow the spec in a few places. When you're already in fullscreen, only requests for fullscreen from elements which are descendants of the fullscreen element, or from subdocuments (iframes) will be granted. Chrome doesn't enforce this limit. Chrome also doesn't revert to the previous fullscreen element when `.exit()` is called, but will instead exit fullscreen.
 
 
 ## Contribute
