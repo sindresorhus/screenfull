@@ -4,58 +4,59 @@
 
 	var keyboardAllowed = 'ALLOW_KEYBOARD_INPUT' in Element,
 
-		methods = (function() {
-			var methodMap = [
+		fn = (function() {
+			var fnMap = [
 				[
 					'requestFullscreen',
 					'exitFullscreen',
 					'fullscreenchange',
 					'fullscreen',
-					'fullscreenElement'
+					'fullscreenElement',
+					'fullscreenerror'
 				],
 				[
 					'webkitRequestFullScreen',
 					'webkitCancelFullScreen',
 					'webkitfullscreenchange',
 					'webkitIsFullScreen',
-					'webkitCurrentFullScreenElement'
+					'webkitCurrentFullScreenElement',
+					'webkitfullscreenerror'
+
 				],
 				[
 					'mozRequestFullScreen',
 					'mozCancelFullScreen',
 					'mozfullscreenchange',
 					'mozFullScreen',
-					'mozFullScreenElement'
-				]
+					'mozFullScreenElement',
+					'mozfullscreenerror'
+				],
 			],
 			i = 0,
-			l = methodMap.length;
+			l = fnMap.length,
+			ret = {},
+			val,
+			valLength;
 
 			for ( ; i < l; i++ ) {
-				var val = methodMap[ i ];
+				val = fnMap[ i ];
 				if ( val[1] in document ) {
-					return val;
+					for ( i = 0, valLength = val.length; i < valLength; i++ ) {
+						ret[ fnMap[0][ i ] ] = val[ i ];
+					}
+					return ret;
 				}
 			}
 		})(),
 
 		screenfull = {
-			isFullscreen: document[ methods[3] ],
-
-			element: document[ methods[4] ],
+			isFullscreen: document[ fn.fullscreen ],
+			element: document[ fn.fullscreenElement ],
 
 			request: function( elem ) {
-				var request = methods[0];
+				var request = fn.requestFullscreen;
 
 				elem = elem || document.documentElement;
-
-				// If you request a new element when already in fullscreen, Chrome will
-				// change directly to that element, while Firefox will do nothing. Force
-				// Firefox to change element by exiting and then reenter, making it consistent.
-				if ( request.indexOf('moz') !== -1 && elem !== this.element ) {
-					this.exit();
-				}
-
 				elem[ request ]( keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT );
 
 				// Work around Safari 5.1 bug: reports support for
@@ -66,7 +67,7 @@
 			},
 
 			exit: function() {
-				document[ methods[1] ]();
+				document[ fn.exitFullscreen ]();
 			},
 
 			toggle: function( elem ) {
@@ -77,17 +78,22 @@
 				}
 			},
 
-			onchange: function() {}
+			onchange: function() {},
+			onerror: function() {}
 		};
 
-	if ( !methods ) {
+	if ( !fn ) {
 		return;
 	}
 
-	document.addEventListener( methods[2], function( e ) {
-		screenfull.isFullscreen = document[ methods[3] ];
-		screenfull.element = document[ methods[4] ];
-		screenfull.onchange( e );
+	document.addEventListener( fn.fullscreenchange, function( e ) {
+		screenfull.isFullscreen = document[ fn.fullscreen ];
+		screenfull.element = document[ fn.fullscreenElement ];
+		screenfull.onchange.call( screenfull, e );
+	});
+
+	document.addEventListener( fn.fullscreenerror, function( e ) {
+		screenfull.onerror.call( screenfull, e );
 	});
 
 	window.screenfull = screenfull;
