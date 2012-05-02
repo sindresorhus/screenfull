@@ -99,6 +99,10 @@
 	#demo-video {
 		cursor: pointer;
 	}
+
+	header p {
+		font-size: 17px;
+	}
 	</style>
 </head>
 <body>
@@ -111,16 +115,18 @@
 		<div class="g-plusone" data-size="medium" data-annotation="none" data-href="https://github.com/sindresorhus/screenfull.js/"></div>
 	</div>
 	<section id="container" class="container">
-		<h1>screenfull<span>.js</span></h1>
-		<p style="font-size:17px">Simple wrapper for cross-browser usage of the JavaScript <a href="https://developer.mozilla.org/en/DOM/Using_full-screen_mode">Fullscreen API</a>, which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have too.</p>
+		<header>
+			<h1>screenfull<span>.js</span></h1>
+			<p>Simple wrapper for cross-browser usage of the JavaScript <a href="https://developer.mozilla.org/en/DOM/Using_full-screen_mode">Fullscreen API</a>, which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have too.</p>
+		</header>
 		<hr>
-		<p>Try it out the Fullscreen API</p>
-		<nav>
+		<section>
+			<p>Try out the Fullscreen API</p>
 			<button id="request">Request</button>
 			<button id="exit">Exit</button>
 			<button id="toggle">Toggle</button>
 			<button id="request2">Request document</button>
-		</nav>
+		</section>
 		<section>
 			<ul>
 				<li id="supported"></li>
