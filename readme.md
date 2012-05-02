@@ -8,10 +8,43 @@ Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https:
 
 ## Download
 
+Only 578 bytes gzipped (1321 bytes minified)
+
 Download the [production version][min] or the [development version][max].
 
 [min]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.min.js
 [max]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js
+
+
+## Why?
+
+### Screenfull
+
+```javascript
+if ( screenfull ) {
+        screenfull.request();
+}
+```
+
+### Vanilla JavaScript
+
+```javascript
+document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
+
+function requestFullscreen( element ) {
+        if ( element.requestFullscreen ) {
+                element.requestFullscreen();
+        } else if ( element.mozRequestFullScreen ) {
+                element.mozRequestFullScreen();
+        } else if ( element.webkitRequestFullScreen ) {
+                element.webkitRequestFullScreen( Element.ALLOW_KEYBOARD_INPUT );
+        }
+}
+
+if ( document.fullscreenEnabled ) {
+        requestFullscreen( document.documentElement );
+}
+```
 
 
 ## Support
