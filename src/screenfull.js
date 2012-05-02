@@ -2,7 +2,7 @@
 (function( window, document ) {
 	'use strict';
 
-	var keyboardAllowed = 'ALLOW_KEYBOARD_INPUT' in Element,
+	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element, // IE6 throws without typeof check
 
 		fn = (function() {
 			var fnMap = [
@@ -40,13 +40,14 @@
 
 			for ( ; i < l; i++ ) {
 				val = fnMap[ i ];
-				if ( val[1] in document ) {
+				if ( val && val[1] in document ) {
 					for ( i = 0, valLength = val.length; i < valLength; i++ ) {
 						ret[ fnMap[0][ i ] ] = val[ i ];
 					}
 					return ret;
 				}
 			}
+			return false;
 		})(),
 
 		screenfull = {
@@ -83,6 +84,7 @@
 		};
 
 	if ( !fn ) {
+		window.screenfull = null;
 		return;
 	}
 
