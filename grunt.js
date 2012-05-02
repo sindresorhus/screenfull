@@ -50,6 +50,8 @@ module.exports = function( grunt ) {
 		}
 	});
 
-	grunt.registerTask('default', 'lint concat min');
+        grunt.registerTask('default', 'lint');
+
+        grunt.registerTask('release', 'lint concat min');
 
 };
