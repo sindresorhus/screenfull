@@ -44,6 +44,8 @@ function requestFullscreen( element ) {
 if ( document.fullscreenEnabled ) {
         requestFullscreen( document.documentElement );
 }
+
+// Actually it's more if you want it to work in Safari, but let's not go there...
 ```
 
 
