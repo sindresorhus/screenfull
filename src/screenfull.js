@@ -30,7 +30,7 @@
 					'mozFullScreen',
 					'mozFullScreenElement',
 					'mozfullscreenerror'
-				],
+				]
 			],
 			i = 0,
 			l = fnMap.length,
