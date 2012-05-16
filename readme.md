@@ -55,9 +55,9 @@ if ( document.fullscreenEnabled ) {
 - Firefox 10+
 - Safari 5.1+
 
+In Firefox alphanumeric keyboard input while in full-screen mode causes a warning message to appear.
+
 Safari 5.1 doesn't support use of the keyboard in fullscreen.
-
-
 
 ## Documentation
 
