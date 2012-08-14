@@ -68,7 +68,7 @@ Safari 5.1 doesn't support use of the keyboard in fullscreen.
 #### Fullscreen the page
 
 ```javascript
-document.getElementById('#button').addEventListener('click', function() {
+document.getElementById('button').addEventListener('click', function() {
 	if ( screenfull ) {
 		screenfull.request();
 	} else {
@@ -81,8 +81,8 @@ document.getElementById('#button').addEventListener('click', function() {
 #### Fullscreen an element
 
 ```javascript
-var elem = document.getElementById('#target');
-document.getElementById('#button').addEventListener('click', function() {
+var elem = document.getElementById('target');
+document.getElementById('button').addEventListener('click', function() {
 	screenfull.request( elem );
 });
 ```
