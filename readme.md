@@ -56,8 +56,6 @@ if ( document.fullscreenEnabled ) {
 - Safari 5.1+
 - Opera 12.50+
 
-In Firefox <=14 alphanumeric keyboard input while in full-screen mode causes a warning message to appear.
-
 Safari 5.1 doesn't support use of the keyboard in fullscreen.
 
 ## Documentation
@@ -84,7 +82,9 @@ document.getElementById('button').addEventListener('click', function() {
 ```javascript
 var elem = document.getElementById('target');
 document.getElementById('button').addEventListener('click', function() {
-	screenfull.request( elem );
+	if ( screenfull ) {
+		screenfull.request( elem );
+	}
 });
 ```
 
@@ -94,7 +94,9 @@ document.getElementById('button').addEventListener('click', function() {
 ```javascript
 var target = $('#target')[0]; // Get DOM element from jQuery collection
 $('#button').click(function() {
-	screenfull.request( target );
+	if ( screenfull ) {
+		screenfull.request( target );
+	}
 });
 ```
 
@@ -103,8 +105,10 @@ $('#button').click(function() {
 
 ```javascript
 $('img').click(function() {
-	// We can use `this` since we want the clicked element
-	screenfull.toggle( this );
+	if ( screenfull ) {
+		// We can use `this` since we want the clicked element
+		screenfull.toggle( this );
+	}
 });
 ```
 
@@ -112,9 +116,11 @@ $('img').click(function() {
 #### Detect fullscreen change
 
 ```javascript
-screenfull.onchange = function() {
-	console.log( 'Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No' );
-};
+if ( screenfull ) {
+	screenfull.onchange = function() {
+		console.log( 'Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No' );
+	};
+}
 ```
 
 
@@ -122,14 +128,17 @@ See the [demo](http://sindresorhus.com/screenfull.js) for more examples, and vie
 
 You can check for fullscreen support by checking the truthy/falsy value of `screenfull` as done in the example above.
 
-*Keep in mind that the browser will only enter fullscreen when initiated by the user, like click.*
-
-
 ### Methods
 
 #### .request()
 
+Make an element fullscreen.
+
 Accepts a DOM element. Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+
+If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
+
+Keep in mind that the browser will only enter fullscreen when initiated by the user, like click, touch, key.
 
 #### .exit()
 
