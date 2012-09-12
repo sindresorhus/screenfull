@@ -58,12 +58,15 @@
 				var request = fn.requestFullscreen;
 
 				elem = elem || document.documentElement;
-				elem[ request ]( keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT );
 
 				// Work around Safari 5.1 bug: reports support for
 				// keyboard in fullscreen even though it doesn't.
-				if ( !document.isFullscreen ) {
+				// Browser sniffing, since the alternative with
+				// setTimeout is even worse
+				if ( /5\.1[\.\d]* Safari/.test( navigator.userAgent ) ) {
 					elem[ request ]();
+				} else {
+					elem[ request ]( keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT );
 				}
 			},
 

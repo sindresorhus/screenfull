@@ -1,6 +1,6 @@
 /*!
 * screenfull.js
-* v1.0.0 - 2012-05-02
+* v1.0.1 - 2012-09-12
 * https://github.com/sindresorhus/screenfull.js
 * (c) Sindre Sorhus; MIT License
 */
@@ -65,12 +65,15 @@
 				var request = fn.requestFullscreen;
 
 				elem = elem || document.documentElement;
-				elem[ request ]( keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT );
 
 				// Work around Safari 5.1 bug: reports support for
 				// keyboard in fullscreen even though it doesn't.
-				if ( !document.isFullscreen ) {
+				// Browser sniffing, since the alternative with
+				// setTimeout is even worse
+				if ( /5\.1[\.\d]* Safari/.test( navigator.userAgent ) ) {
 					elem[ request ]();
+				} else {
+					elem[ request ]( keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT );
 				}
 			},
 

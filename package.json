@@ -1,6 +1,6 @@
 {
 	"name": "screenfull.js",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Simple wrapper for cross-browser usage of the Fullscreen API",
 	"keywords": [
 		"fullscreen"
