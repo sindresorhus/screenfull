@@ -22,7 +22,7 @@ Download the [production version][min] or the [development version][max].
 
 ```javascript
 if ( screenfull ) {
-        screenfull.request();
+	screenfull.request();
 }
 ```
 
@@ -32,17 +32,17 @@ if ( screenfull ) {
 document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
 
 function requestFullscreen( element ) {
-        if ( element.requestFullscreen ) {
-                element.requestFullscreen();
-        } else if ( element.mozRequestFullScreen ) {
-                element.mozRequestFullScreen();
-        } else if ( element.webkitRequestFullScreen ) {
-                element.webkitRequestFullScreen( Element.ALLOW_KEYBOARD_INPUT );
-        }
+	if ( element.requestFullscreen ) {
+		element.requestFullscreen();
+	} else if ( element.mozRequestFullScreen ) {
+		element.mozRequestFullScreen();
+	} else if ( element.webkitRequestFullScreen ) {
+		element.webkitRequestFullScreen( Element.ALLOW_KEYBOARD_INPUT );
+	}
 }
 
 if ( document.fullscreenEnabled ) {
-        requestFullscreen( document.documentElement );
+	requestFullscreen( document.documentElement );
 }
 
 // Actually it's more if you want it to work in Safari, but let's not go there...
