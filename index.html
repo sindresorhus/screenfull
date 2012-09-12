@@ -34,8 +34,8 @@
 	}
 
 	h1 {
-		margin-top: 10px;
-		font-size: 50px;
+		margin: 0;
+		font-size: 40px;
 		text-align: center;
 	}
 
@@ -134,6 +134,11 @@
 		<input autofocus placeholder="Keyboard test">
 		<hr>
 		<section>
+			<p>How to open external pages while in fullscreen</p>
+			<button id="iframe">Click when in fullscreen</button>
+		</section>
+		<hr>
+		<section>
 			<p>Click the image to make it fullscreen</p>
 			<img width="500" height="206" id="demo-img" src="http://sindresorhus.com/img/slideshow/4.jpg">
 		</section>
@@ -187,17 +192,41 @@
 
 		$('#demo-img').click(function() {
 			screenfull.toggle( this );
-		})
+		});
 
 		$('#demo-video').click(function() {
 			screenfull.toggle( this );
+		});
+
+		$('#iframe').click(function() {
+			// We create an iframe and fill the window with it
+			var iframe = document.createElement('iframe')
+			iframe.setAttribute( 'id', 'external-iframe' );
+			iframe.setAttribute( 'src', 'http://bbc.com' );
+			iframe.setAttribute( 'frameborder', 'no' );
+			iframe.style.position = 'absolute';
+			iframe.style.top = '0';
+			iframe.style.right = '0';
+			iframe.style.bottom = '0';
+			iframe.style.left = '0';
+			iframe.style.width = '100%';
+			iframe.style.height = '100%';
+			$('#container').prepend( iframe );
+			document.body.style.overflow = 'hidden';
 		})
 
 		screenfull.onchange = function( e ) {
-			$('#status').text( 'Is fullscreen: ' + screenfull.isFullscreen );
 			var elem = screenfull.element;
+
+			$('#status').text( 'Is fullscreen: ' + screenfull.isFullscreen );
+
 			if ( elem ) {
 				$('#element').text( 'Element: ' + elem.localName + ( elem.id ? '#' + elem.id : '' ) );
+			}
+
+			if ( !screenfull.isFullscreen ) {
+				$('#external-iframe').remove();
+				document.body.style.overflow = 'auto';
 			}
 		};
 
