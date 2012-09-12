@@ -62,9 +62,11 @@
 
 				// Work around Safari 5.1 bug: reports support for
 				// keyboard in fullscreen even though it doesn't.
-				if ( !document.isFullscreen ) {
-					elem[ request ]();
-				}
+                setTimeout(function(){ // workaround for https://github.com/sindresorhus/screenfull.js/issues/8
+                    if ( !document.isFullscreen ) {
+                        elem[ request ]();
+                    }
+                }, 0);
 			},
 
 			exit: function() {
