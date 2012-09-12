@@ -8,7 +8,7 @@ Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https:
 
 ## Download
 
-Only 608 bytes gzipped (1380 bytes minified)
+Only 0.6 KB gzipped (1.4 KB minified)
 
 Download the [production version][min] or the [development version][max].
 
@@ -54,8 +54,9 @@ if ( document.fullscreenEnabled ) {
 - Chrome 15+
 - Firefox 10+
 - Safari 5.1+
+- Opera 12.50+
 
-In Firefox alphanumeric keyboard input while in full-screen mode causes a warning message to appear.
+In Firefox <=14 alphanumeric keyboard input while in full-screen mode causes a warning message to appear.
 
 Safari 5.1 doesn't support use of the keyboard in fullscreen.
 
