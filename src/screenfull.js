@@ -9,26 +9,37 @@
 				[
 					'requestFullscreen',
 					'exitFullscreen',
-					'fullscreenchange',
-					'fullscreen',
 					'fullscreenElement',
+					'fullscreenEnabled',
+					'fullscreenchange',
 					'fullscreenerror'
 				],
+				// new WebKit
+				[
+					'webkitRequestFullscreen',
+					'webkitExitFullscreen',
+					'webkitFullscreenElement',
+					'webkitFullscreenEnabled',
+					'webkitfullscreenchange',
+					'webkitfullscreenerror'
+
+				],
+				// old WebKit (Safari 5.1)
 				[
 					'webkitRequestFullScreen',
 					'webkitCancelFullScreen',
-					'webkitfullscreenchange',
-					'webkitIsFullScreen',
 					'webkitCurrentFullScreenElement',
+					'',
+					'webkitfullscreenchange',
 					'webkitfullscreenerror'
 
 				],
 				[
 					'mozRequestFullScreen',
 					'mozCancelFullScreen',
-					'mozfullscreenchange',
-					'mozFullScreen',
 					'mozFullScreenElement',
+					'mozFullScreenEnabled',
+					'mozfullscreenchange',
 					'mozfullscreenerror'
 				]
 			],
@@ -51,7 +62,7 @@
 		})(),
 
 		screenfull = {
-			isFullscreen: document[ fn.fullscreen ],
+			isFullscreen: !!document[ fn.fullscreenElement ],
 			element: document[ fn.fullscreenElement ],
 
 			request: function( elem ) {
@@ -92,7 +103,7 @@
 	}
 
 	document.addEventListener( fn.fullscreenchange, function( e ) {
-		screenfull.isFullscreen = document[ fn.fullscreen ];
+		screenfull.isFullscreen = !!document[ fn.fullscreenElement ];
 		screenfull.element = document[ fn.fullscreenElement ];
 		screenfull.onchange.call( screenfull, e );
 	});
