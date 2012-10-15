@@ -179,11 +179,6 @@ Returns a boolean whether you are allowed to enter fullscreen. If your page is i
 - [W3C Fullscren spec](http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html)
 
 
-## Known inconsistencies
-
-Chrome 18 doesn't follow the spec in a few places. When you're already in fullscreen, only requests for fullscreen from elements which are descendants of the fullscreen element, or from subdocuments (iframes) will be granted. Chrome doesn't enforce this limit. Chrome also doesn't revert to the previous fullscreen element when `.exit()` is called, but will instead exit fullscreen.
-
-
 ## Contribute
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Lint and minify your code using [grunt](https://github.com/cowboy/grunt).
