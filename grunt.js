@@ -1,8 +1,8 @@
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
 	'use strict';
 
 	grunt.initConfig({
-		pkg: '<json:package.json>',
+		pkg: '<json:component.json>',
 		meta: {
 			banner: '/*!\n' +
 				'* <%= pkg.name %>\n' +
@@ -15,13 +15,19 @@ module.exports = function( grunt ) {
 		},
 		concat: {
 			dist: {
-				src: ['<banner:meta.banner>', 'src/screenfull.js'],
+				src: [
+					'<banner:meta.banner>',
+					'src/screenfull.js'
+				],
 				dest: 'dist/screenfull.js'
 			}
 		},
 		min: {
 			dist: {
-				src: ['<banner:meta.banner>', 'src/screenfull.js'],
+				src: [
+					'<banner:meta.banner>',
+					'src/screenfull.js'
+				],
 				dest: 'dist/screenfull.min.js'
 			}
 		},
@@ -50,8 +56,6 @@ module.exports = function( grunt ) {
 		}
 	});
 
-        grunt.registerTask('default', 'lint');
-
-        grunt.registerTask('release', 'lint concat min');
-
+	grunt.registerTask('default', 'lint');
+	grunt.registerTask('release', 'lint concat min');
 };

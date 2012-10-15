@@ -8,7 +8,7 @@ Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https:
 
 ## Download
 
-Only 0.6 KB gzipped (1.4 KB minified)
+Only 0.7 KB gzipped (1.6 KB minified)
 
 Download the [production version][min] or the [development version][max].
 
