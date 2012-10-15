@@ -65,7 +65,9 @@
 		text-align: center;
 		text-decoration: none;
 		display: block;
-		margin-bottom: 10px;
+		position: absolute;
+		top: 20px;
+		left: 20px;
 	}
 
 	#social {
@@ -106,7 +108,7 @@
 	</style>
 </head>
 <body>
-	<a id="repo-link" class="container" href="https://github.com/sindresorhus/screenfull.js/">⬅ Back to the repo</a>
+	<a id="repo-link" href="https://github.com/sindresorhus/screenfull.js/">⬅ Back to the repo</a>
 	<div id="social" class="container">
 		<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text="screenfull.js - Simple wrapper for cross-browser usage of the Fullscreen API" data-via="sindresorhus">Tweet</a>
 		<div class="g-plusone" data-size="medium" data-annotation="none" data-href="https://github.com/sindresorhus/screenfull.js/"></div>
@@ -166,9 +168,9 @@
 	<script>
 	$(function() {
 
-		$('#supported').text( 'Supported: ' + !!screenfull );
+		$('#supported').text( 'Supported/allowed: ' + !!screenfull.enabled );
 
-		if ( !screenfull ) {
+		if ( !screenfull.enabled ) {
 			return false;
 		}
 

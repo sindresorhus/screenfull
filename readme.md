@@ -21,7 +21,7 @@ Download the [production version][min] or the [development version][max].
 ### Screenfull
 
 ```javascript
-if ( screenfull ) {
+if ( screenfull.enabled ) {
 	screenfull.request();
 }
 ```
@@ -68,7 +68,7 @@ Safari 5.1 doesn't support use of the keyboard in fullscreen.
 
 ```javascript
 document.getElementById('button').addEventListener('click', function() {
-	if ( screenfull ) {
+	if ( screenfull.enabled ) {
 		screenfull.request();
 	} else {
 		// Ignore or do something else
@@ -82,7 +82,7 @@ document.getElementById('button').addEventListener('click', function() {
 ```javascript
 var elem = document.getElementById('target');
 document.getElementById('button').addEventListener('click', function() {
-	if ( screenfull ) {
+	if ( screenfull.enabled ) {
 		screenfull.request( elem );
 	}
 });
@@ -94,7 +94,7 @@ document.getElementById('button').addEventListener('click', function() {
 ```javascript
 var target = $('#target')[0]; // Get DOM element from jQuery collection
 $('#button').click(function() {
-	if ( screenfull ) {
+	if ( screenfull.enabled ) {
 		screenfull.request( target );
 	}
 });
@@ -105,7 +105,7 @@ $('#button').click(function() {
 
 ```javascript
 $('img').click(function() {
-	if ( screenfull ) {
+	if ( screenfull.enabled ) {
 		// We can use `this` since we want the clicked element
 		screenfull.toggle( this );
 	}
@@ -116,17 +116,17 @@ $('img').click(function() {
 #### Detect fullscreen change
 
 ```javascript
-if ( screenfull ) {
+if ( screenfull.enabled ) {
 	screenfull.onchange = function() {
 		console.log( 'Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No' );
 	};
 }
 ```
 
-
 See the [demo](http://sindresorhus.com/screenfull.js) for more examples, and view the source.
 
 You can check for fullscreen support by checking the truthy/falsy value of `screenfull` as done in the example above.
+
 
 ### Methods
 
@@ -138,7 +138,7 @@ Accepts a DOM element. Default is `<html>`. If called with another element than 
 
 If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
 
-Keep in mind that the browser will only enter fullscreen when initiated by the user, like click, touch, key.
+Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
 #### .exit()
 
@@ -166,6 +166,10 @@ Returns a boolean whether fullscreen is active.
 #### .element
 
 Returns the element currently in fullscreen, otherwise `null`.
+
+#### .enabled
+
+Returns a boolean whether you are allowed to enter fullscreen. If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
 
 
 ## Resources

@@ -62,9 +62,6 @@
 		})(),
 
 		screenfull = {
-			isFullscreen: !!document[ fn.fullscreenElement ],
-			element: document[ fn.fullscreenElement ],
-
 			request: function( elem ) {
 				var request = fn.requestFullscreen;
 
@@ -98,13 +95,30 @@
 		};
 
 	if ( !fn ) {
-		window.screenfull = null;
-		return;
+		return window.screenfull = false;
 	}
 
+	Object.defineProperties(screenfull, {
+		isFullscreen: {
+			get: function() {
+				return !!document[ fn.fullscreenElement ];
+			}
+		},
+		element: {
+			enumerable: true,
+			get: function() {
+				return document[ fn.fullscreenElement ];
+			}
+		},
+		enabled: {
+			enumerable: true,
+			get: function() {
+				return document[ fn.fullscreenEnabled ];
+			}
+		}
+	});
+
 	document.addEventListener( fn.fullscreenchange, function( e ) {
-		screenfull.isFullscreen = !!document[ fn.fullscreenElement ];
-		screenfull.element = document[ fn.fullscreenElement ];
 		screenfull.onchange.call( screenfull, e );
 	});
 
