@@ -21,7 +21,7 @@ Download the [production version][min] or the [development version][max].
 ### Screenfull
 
 ```javascript
-if ( screenfull.enabled ) {
+if (screenfull.enabled) {
 	screenfull.request();
 }
 ```
@@ -31,18 +31,18 @@ if ( screenfull.enabled ) {
 ```javascript
 document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
 
-function requestFullscreen( element ) {
-	if ( element.requestFullscreen ) {
+function requestFullscreen(element) {
+	if (element.requestFullscreen) {
 		element.requestFullscreen();
-	} else if ( element.mozRequestFullScreen ) {
+	} else if (element.mozRequestFullScreen) {
 		element.mozRequestFullScreen();
-	} else if ( element.webkitRequestFullScreen ) {
-		element.webkitRequestFullScreen( Element.ALLOW_KEYBOARD_INPUT );
+	} else if (element.webkitRequestFullScreen) {
+		element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
 	}
 }
 
-if ( document.fullscreenEnabled ) {
-	requestFullscreen( document.documentElement );
+if (document.fullscreenEnabled) {
+	requestFullscreen(document.documentElement);
 }
 
 // Actually it's more if you want it to work in Safari, but let's not go there...
@@ -68,7 +68,7 @@ Safari 5.1 doesn't support use of the keyboard in fullscreen.
 
 ```javascript
 document.getElementById('button').addEventListener('click', function() {
-	if ( screenfull.enabled ) {
+	if (screenfull.enabled) {
 		screenfull.request();
 	} else {
 		// Ignore or do something else
@@ -82,8 +82,8 @@ document.getElementById('button').addEventListener('click', function() {
 ```javascript
 var elem = document.getElementById('target');
 document.getElementById('button').addEventListener('click', function() {
-	if ( screenfull.enabled ) {
-		screenfull.request( elem );
+	if (screenfull.enabled) {
+		screenfull.request(elem);
 	}
 });
 ```
@@ -94,8 +94,8 @@ document.getElementById('button').addEventListener('click', function() {
 ```javascript
 var target = $('#target')[0]; // Get DOM element from jQuery collection
 $('#button').click(function() {
-	if ( screenfull.enabled ) {
-		screenfull.request( target );
+	if (screenfull.enabled) {
+		screenfull.request(target);
 	}
 });
 ```
@@ -105,9 +105,9 @@ $('#button').click(function() {
 
 ```javascript
 $('img').click(function() {
-	if ( screenfull.enabled ) {
+	if (screenfull.enabled) {
 		// We can use `this` since we want the clicked element
-		screenfull.toggle( this );
+		screenfull.toggle(this);
 	}
 });
 ```
@@ -116,9 +116,9 @@ $('img').click(function() {
 #### Detect fullscreen change
 
 ```javascript
-if ( screenfull.enabled ) {
+if (screenfull.enabled) {
 	screenfull.onchange = function() {
-		console.log( 'Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No' );
+		console.log('Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No');
 	};
 }
 ```

@@ -1,10 +1,11 @@
 /*global Element */
-(function( window, document ) {
+(function(window, document) {
 	'use strict';
 
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element, // IE6 throws without typeof check
 
 		fn = (function() {
+			var val, valLength;
 			var fnMap = [
 				[
 					'requestFullscreen',
@@ -42,18 +43,16 @@
 					'mozfullscreenchange',
 					'mozfullscreenerror'
 				]
-			],
-			i = 0,
-			l = fnMap.length,
-			ret = {},
-			val,
-			valLength;
+			];
+			var i = 0;
+			var l = fnMap.length;
+			var ret = {};
 
-			for ( ; i < l; i++ ) {
-				val = fnMap[ i ];
-				if ( val && val[1] in document ) {
-					for ( i = 0, valLength = val.length; i < valLength; i++ ) {
-						ret[ fnMap[0][ i ] ] = val[ i ];
+			for (; i < l; i++) {
+				val = fnMap[i];
+				if (val && val[1] in document) {
+					for (i = 0, valLength = val.length; i < valLength; i++) {
+						ret[fnMap[0][i]] = val[i];
 					}
 					return ret;
 				}
@@ -62,7 +61,7 @@
 		})(),
 
 		screenfull = {
-			request: function( elem ) {
+			request: function(elem) {
 				var request = fn.requestFullscreen;
 
 				elem = elem || document.documentElement;
@@ -71,61 +70,58 @@
 				// keyboard in fullscreen even though it doesn't.
 				// Browser sniffing, since the alternative with
 				// setTimeout is even worse
-				if ( /5\.1[\.\d]* Safari/.test( navigator.userAgent ) ) {
-					elem[ request ]();
+				if (/5\.1[\.\d]* Safari/.test(navigator.userAgent)) {
+					elem[request]();
 				} else {
-					elem[ request ]( keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT );
+					elem[request](keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT);
 				}
 			},
-
 			exit: function() {
-				document[ fn.exitFullscreen ]();
+				document[fn.exitFullscreen]();
 			},
-
 			toggle: function( elem ) {
-				if ( this.isFullscreen ) {
+				if (this.isFullscreen) {
 					this.exit();
 				} else {
-					this.request( elem );
+					this.request(elem);
 				}
 			},
-
 			onchange: function() {},
 			onerror: function() {}
 		};
 
-	if ( !fn ) {
+	if (!fn) {
 		return window.screenfull = false;
 	}
 
 	Object.defineProperties(screenfull, {
 		isFullscreen: {
 			get: function() {
-				return !!document[ fn.fullscreenElement ];
+				return !!document[fn.fullscreenElement];
 			}
 		},
 		element: {
 			enumerable: true,
 			get: function() {
-				return document[ fn.fullscreenElement ];
+				return document[fn.fullscreenElement];
 			}
 		},
 		enabled: {
 			enumerable: true,
 			get: function() {
-				return document[ fn.fullscreenEnabled ];
+				return document[fn.fullscreenEnabled];
 			}
 		}
 	});
 
-	document.addEventListener( fn.fullscreenchange, function( e ) {
-		screenfull.onchange.call( screenfull, e );
+	document.addEventListener(fn.fullscreenchange, function(e) {
+		screenfull.onchange.call(screenfull, e);
 	});
 
-	document.addEventListener( fn.fullscreenerror, function( e ) {
-		screenfull.onerror.call( screenfull, e );
+	document.addEventListener(fn.fullscreenerror, function(e) {
+		screenfull.onerror.call(screenfull, e);
 	});
 
 	window.screenfull = screenfull;
 
-})( window, document );
+})(window, document);
