@@ -169,7 +169,7 @@ Returns the element currently in fullscreen, otherwise `null`.
 
 #### .enabled
 
-Returns a boolean whether you are allowed to enter fullscreen. If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
+Returns a boolean whether you are allowed to enter fullscreen (note: on Safari 5.1 it returns a `function`, which can be used in loose comparisons as it is truthy). If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
 
 
 ## Resources

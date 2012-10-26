@@ -30,7 +30,7 @@
 					'webkitRequestFullScreen',
 					'webkitCancelFullScreen',
 					'webkitCurrentFullScreenElement',
-					'',
+					'webkitCancelFullScreen',
 					'webkitfullscreenchange',
 					'webkitfullscreenerror'
 
