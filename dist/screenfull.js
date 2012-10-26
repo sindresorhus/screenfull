@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v1.0.2 - 2012-10-15
+* v1.0.2 - 2012-10-26
 * https://github.com/sindresorhus/screenfull.js
 * (c) Sindre Sorhus; MIT License
 */
@@ -37,7 +37,7 @@
 					'webkitRequestFullScreen',
 					'webkitCancelFullScreen',
 					'webkitCurrentFullScreenElement',
-					'',
+					'webkitCancelFullScreen',
 					'webkitfullscreenchange',
 					'webkitfullscreenerror'
 
