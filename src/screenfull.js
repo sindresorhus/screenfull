@@ -30,7 +30,7 @@
 					'webkitRequestFullScreen',
 					'webkitCancelFullScreen',
 					'webkitCurrentFullScreenElement',
-					'',
+					'webkitCancelFullScreen',
 					'webkitfullscreenchange',
 					'webkitfullscreenerror'
 
@@ -109,7 +109,8 @@
 		enabled: {
 			enumerable: true,
 			get: function() {
-				return document[fn.fullscreenEnabled];
+				// Coerce to boolean in case of old WebKit
+				return !!document[fn.fullscreenEnabled];
 			}
 		}
 	});
