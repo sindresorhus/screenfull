@@ -51,12 +51,10 @@ if (document.fullscreenEnabled) {
 
 ## Support
 
-- Chrome 15+
-- Firefox 10+
-- Safari 5.1+
-- Opera 12.50+
+[Supported browsers](http://caniuse.com/fullscreen)
 
 Safari 5.1 doesn't support use of the keyboard in fullscreen.
+
 
 ## Documentation
 
