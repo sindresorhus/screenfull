@@ -1,8 +1,8 @@
 {
 	"name": "screenfull",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Simple wrapper for cross-browser usage of the Fullscreen API",
-	"main": "./dist/screenfull.js",
+	"main": "dist/screenfull.js",
 	"keywords": [
 		"fullscreen"
 	],
