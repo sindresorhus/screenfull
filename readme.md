@@ -12,8 +12,8 @@ Only 0.7 KB gzipped (1.6 KB minified)
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.min.js
-[max]: https://raw.github.com/sindresorhus/screenfull.js/master/dist/screenfull.js
+[min]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.min.js
+[max]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.js
 
 
 ## Why?
