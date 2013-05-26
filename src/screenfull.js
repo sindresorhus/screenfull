@@ -87,7 +87,8 @@
 				}
 			},
 			onchange: function () {},
-			onerror: function () {}
+			onerror: function () {},
+			raw: fn
 		};
 
 	if (!fn) {

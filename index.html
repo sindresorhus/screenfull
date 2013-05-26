@@ -232,6 +232,10 @@
 			}
 		};
 
+		$(document).on(screenfull.raw.fullscreenchange, function () {
+			console.log('Fullscreen change');
+		});
+
 		// Trigger the onchange() to set the initial values
 		screenfull.onchange();
 	});

@@ -155,7 +155,7 @@ Override this method to get notified about fullscreen changes.
 Override this method to get notified about fullscreen errors.
 
 
-### Parameters
+### Properties
 
 #### .isFullscreen
 
@@ -168,6 +168,16 @@ Returns the element currently in fullscreen, otherwise `null`.
 #### .enabled
 
 Returns a boolean whether you are allowed to enter fullscreen. If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
+
+#### .raw
+
+Exposes the raw properties (prefixed if needed) used internally: `requestFullscreen`, `exitFullscreen`, `fullscreenElement`, `fullscreenEnabled`, `fullscreenchange`, `fullscreenerror`
+
+```js
+$(document).on(screenfull.raw.fullscreenchange, function () {
+	console.log('Fullscreen change');
+});
+```
 
 
 ## Resources
