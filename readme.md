@@ -65,7 +65,7 @@ Safari 5.1 doesn't support use of the keyboard in fullscreen.
 #### Fullscreen the page
 
 ```javascript
-document.getElementById('button').addEventListener('click', function() {
+document.getElementById('button').addEventListener('click', function () {
 	if (screenfull.enabled) {
 		screenfull.request();
 	} else {
@@ -79,7 +79,7 @@ document.getElementById('button').addEventListener('click', function() {
 
 ```javascript
 var elem = document.getElementById('target');
-document.getElementById('button').addEventListener('click', function() {
+document.getElementById('button').addEventListener('click', function () {
 	if (screenfull.enabled) {
 		screenfull.request(elem);
 	}
@@ -91,7 +91,7 @@ document.getElementById('button').addEventListener('click', function() {
 
 ```javascript
 var target = $('#target')[0]; // Get DOM element from jQuery collection
-$('#button').click(function() {
+$('#button').click(function () {
 	if (screenfull.enabled) {
 		screenfull.request(target);
 	}
@@ -102,7 +102,7 @@ $('#button').click(function() {
 #### Toggle fullscreen on a image with jQuery
 
 ```javascript
-$('img').click(function() {
+$('img').click(function () {
 	if (screenfull.enabled) {
 		// We can use `this` since we want the clicked element
 		screenfull.toggle(this);
@@ -115,7 +115,7 @@ $('img').click(function() {
 
 ```javascript
 if (screenfull.enabled) {
-	screenfull.onchange = function() {
+	screenfull.onchange = function () {
 		console.log('Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No');
 	};
 }
