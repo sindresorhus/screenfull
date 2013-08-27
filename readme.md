@@ -116,7 +116,7 @@ $('img').click(function () {
 ```javascript
 if (screenfull.enabled) {
 	screenfull.onchange = function () {
-		console.log('Am I fullscreen? ' + screenfull.isFullscreen ? 'Yes' : 'No');
+		console.log('Am I fullscreen? ' + (screenfull.isFullscreen ? 'Yes' : 'No'));
 	};
 }
 ```
