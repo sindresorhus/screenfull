@@ -166,41 +166,42 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="src/screenfull.js"></script>
 		<script>
-		$(function() {
-
+		$(function () {
 			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
 			if (!screenfull.enabled) {
 				return false;
 			}
 
-			$('#request').click(function() {
+			$('#request').click(function () {
 				screenfull.request($('#container')[0]);
-				// Does not require jQuery, can be used like this too:
+				// does not require jQuery, can be used like this too:
 				// screenfull.request(document.getElementById('container'));
 			});
 
-			$('#exit').click(function() {
+			$('#exit').click(function () {
 				screenfull.exit();
 			});
 
-			$('#toggle').click(function() {
+			$('#toggle').click(function () {
 				screenfull.toggle($('#container')[0]);
 			});
 
-			$('#request2').click(function() {
+			$('#request2').click(function () {
 				screenfull.request();
 			});
 
-			$('#demo-img').click(function() {
+			$('#demo-img').click(function () {
 				screenfull.toggle(this);
 			});
 
-			$('#demo-video').click(function() {
+			$('#demo-video').click(function () {
 				screenfull.toggle(this);
 			});
 
-			$('#iframe').click(function() {
+			// a little hack to be able to switch pages while in fullscreen.
+			// we basically just creates a seamless iframe and navigate in that instead.
+			$('#iframe').click(function () {
 				// We create an iframe and fill the window with it
 				var iframe = document.createElement('iframe')
 				iframe.setAttribute('id', 'external-iframe');
@@ -217,7 +218,7 @@
 				document.body.style.overflow = 'hidden';
 			})
 
-			screenfull.onchange = function(e) {
+			document.addEventListener(screenfull.raw.fullscreenchange, function () {
 				var elem = screenfull.element;
 
 				$('#status').text('Is fullscreen: ' + screenfull.isFullscreen);
@@ -230,13 +231,13 @@
 					$('#external-iframe').remove();
 					document.body.style.overflow = 'auto';
 				}
-			};
+			});
 
 			$(document).on(screenfull.raw.fullscreenchange, function () {
 				console.log('Fullscreen change');
 			});
 
-			// Trigger the onchange() to set the initial values
+			// trigger the onchange() to set the initial values
 			screenfull.onchange();
 		});
 		</script>

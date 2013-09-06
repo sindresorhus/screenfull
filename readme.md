@@ -127,9 +127,9 @@ $('img').click(function () {
 
 ```javascript
 if (screenfull.enabled) {
-	screenfull.onchange = function () {
+	document.addEventListener(screenfull.raw.fullscreenchange, function () {
 		console.log('Am I fullscreen? ' + (screenfull.isFullscreen ? 'Yes' : 'No'));
-	};
+	});
 }
 ```
 
@@ -160,11 +160,23 @@ Requests fullscreen if not active, otherwise exits.
 
 #### .onchange()
 
-Override this method to get notified about fullscreen changes.
+<del>Override this method to get notified about fullscreen changes.</del>
+
+You should rather use a real event listener:
+
+```js
+document.addEventListener(screenfull.raw.fullscreenchange, function () {});
+```
 
 #### .onerror()
 
-Override this method to get notified about fullscreen errors.
+<del>Override this method to get notified about fullscreen errors.</del>
+
+You should rather use a real event listener:
+
+```js
+document.addEventListener(screenfull.raw.fullscreenerror, function () {});
+```
 
 
 ### Properties
