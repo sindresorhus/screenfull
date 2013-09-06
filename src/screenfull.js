@@ -43,14 +43,14 @@
 					'mozfullscreenchange',
 					'mozfullscreenerror'
 				],
-        [
-          'msRequestFullscreen',
-          'msExitFullscreen',
-          'msFullscreenElement',
-          'msFullscreenEnabled',
-          'MSFullscreenchange',
-          'MSFullscreenerror'
-        ]
+				[
+					'msRequestFullscreen',
+					'msExitFullscreen',
+					'msFullscreenElement',
+					'msFullscreenEnabled',
+					'MSFullscreenchange',
+					'MSFullscreenerror'
+				]
 			];
 			var i = 0;
 			var l = fnMap.length;
