@@ -1,6 +1,7 @@
-module.exports = function(grunt) {
-	'use strict';
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+'use strict';
+module.exports = function (grunt) {
+	require('load-grunt-tasks')(grunt);
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		meta: {
@@ -18,10 +19,9 @@ module.exports = function(grunt) {
 				banner: '<%= meta.banner %>'
 			},
 			dist: {
-				src: [
-					'src/screenfull.js'
-				],
-				dest: 'dist/screenfull.js'
+				files: {
+					'dist/screenfull.js': 'src/screenfull.js'
+				}
 			}
 		},
 		uglify: {
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'dist/screenfull.min.js':	['src/screenfull.js']
+					'dist/screenfull.min.js': 'src/screenfull.js'
 				}
 			}
 		},
@@ -38,11 +38,14 @@ module.exports = function(grunt) {
 			options: {
 				jshintrc: '.jshintrc'
 			},
-			all: ['GruntFile.js', 'src/screenfull.js']
+			all: [
+				'Gruntfile.js',
+				'src/screenfull.js'
+			]
 		}
 	});
 
-	grunt.registerTask('default', 'jshint');
+	grunt.registerTask('default', ['jshint']);
 	grunt.registerTask('release', [
 		'jshint',
 		'concat',

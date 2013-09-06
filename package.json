@@ -1,28 +1,31 @@
 {
   "name": "screenfull",
   "version": "1.0.4",
+  "description": "Browser module - Simple wrapper for cross-browser usage of the JavaScript Fullscreen API, which lets you bring the page or any element into fullscreen.",
+  "keywords": [
+    "browser",
+    "fullscreen"
+  ],
   "homepage": "https://github.com/sindresorhus/screenfull.js",
-  "description": "Simple wrapper for cross-browser usage of the JavaScript Fullscreen API, which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have too.",
-  "bugs": "https://github.com/sindresorhus/screenfull.js/issues",
+  "license": "MIT",
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "http://sindresorhus.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/sindresorhus/screenfull.js.git"
-  },
+  "files": [
+    "dist/screenfull.js"
+  ],
+  "main": "dist/screenfull",
+  "repository": "sindresorhus/screenfull",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-uglify": "~0.2.4",
-    "matchdep": "~0.1.2"
+    "load-grunt-tasks": "~0.1.0"
   },
-  "licenses": [
-	  {
-	    "type": "MIT"
-	  }
-  ]
+  "engines": {
+    "node": ">=0.8.0"
+  }
 }

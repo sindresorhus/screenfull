@@ -100,7 +100,8 @@
 		};
 
 	if (!fn) {
-		return window.screenfull = false;
+		window.screenfull = false;
+		return;
 	}
 
 	Object.defineProperties(screenfull, {
