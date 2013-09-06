@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 				'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 				'* (c) <%= pkg.author.name %>;' +
-				' <%= _.pluck(pkg.licenses, "type").join(", ") %> License\n' +
+				' <%= pkg.license %> License\n' +
 				'*/\n'
 		},
 		concat: {

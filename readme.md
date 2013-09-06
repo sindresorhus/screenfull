@@ -5,15 +5,27 @@ Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https:
 
 ### [Demo](http://sindresorhus.com/screenfull.js)
 
+### [Check out my other projects](https://github.com/sindresorhus?tab=repositories)
 
-## Download
+
+## Install
 
 Only 0.7 KB gzipped (1.6 KB minified)
+
+#### Manually
 
 Download the [production version][min] or the [development version][max].
 
 [min]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.min.js
 [max]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.js
+
+#### [Bower](http://bower.io)
+
+`bower install --save screenfull`
+
+#### [npm](https://npmjs.org/package/screenfull)
+
+`npm install --save screenfull`
 
 
 ## Why?
@@ -187,14 +199,6 @@ $(document).on(screenfull.raw.fullscreenchange, function () {
 - [W3C Fullscren spec](http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html)
 
 
-## Contribute
-
-In lieu of a formal styleguide, take care to maintain the existing coding style. Lint and minify your code using [grunt](https://github.com/cowboy/grunt).
-
-*Also, please don't edit files in the "dist" subdirectory as they are generated via grunt. You'll find source code in the "src" subdirectory!*
-
-
 ## License
 
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
-(c) [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)

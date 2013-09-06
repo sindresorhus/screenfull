@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v1.0.4 - 2013-09-06
+* v1.1.0 - 2013-09-06
 * https://github.com/sindresorhus/screenfull.js
 * (c) Sindre Sorhus; MIT License
 */
@@ -106,7 +106,8 @@
 		};
 
 	if (!fn) {
-		return window.screenfull = false;
+		window.screenfull = false;
+		return;
 	}
 
 	Object.defineProperties(screenfull, {
