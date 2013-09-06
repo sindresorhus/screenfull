@@ -1,5 +1,4 @@
 {
-	"node": true,
 	"browser": true,
 	"esnext": true,
 	"bitwise": true,
@@ -17,5 +16,7 @@
 	"unused": true,
 	"strict": true,
 	"trailing": true,
-	"smarttabs": true
+	"smarttabs": true,
+	"noempty": true,
+	"nonstandard": true
 }
