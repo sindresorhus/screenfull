@@ -1,10 +1,9 @@
 /*!
 * screenfull
-* v1.0.4 - 2013-05-26
+* v1.0.4 - 2013-09-06
 * https://github.com/sindresorhus/screenfull.js
 * (c) Sindre Sorhus; MIT License
 */
-
 /*global Element */
 (function (window, document) {
 	'use strict';
@@ -49,6 +48,14 @@
 					'mozFullScreenEnabled',
 					'mozfullscreenchange',
 					'mozfullscreenerror'
+				],
+				[
+					'msRequestFullscreen',
+					'msExitFullscreen',
+					'msFullscreenElement',
+					'msFullscreenEnabled',
+					'MSFullscreenchange',
+					'MSFullscreenerror'
 				]
 			];
 			var i = 0;

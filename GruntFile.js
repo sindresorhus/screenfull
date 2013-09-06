@@ -2,20 +2,20 @@ module.exports = function(grunt) {
 	'use strict';
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 	grunt.initConfig({
-		pkg: '<json:component.json>',
+		pkg: grunt.file.readJSON('package.json'),
 		meta: {
 			banner: '/*!\n' +
 				'* <%= pkg.name %>\n' +
 				'* v<%= pkg.version %> - ' +
 				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-				'<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
+				'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 				'* (c) <%= pkg.author.name %>;' +
 				' <%= _.pluck(pkg.licenses, "type").join(", ") %> License\n' +
-				'*/'
+				'*/\n'
 		},
 		concat: {
 			options: {
-				banner: '<% = meta.banner %>'
+				banner: '<%= meta.banner %>'
 			},
 			dist: {
 				src: [
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			options: {
-				banner: '<% = meta.banner %>'
+				banner: '<%= meta.banner %>'
 			},
 			dist: {
 				files: {
@@ -43,5 +43,9 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', 'jshint');
-	grunt.registerTask('release', 'jshint concat uglify');
+	grunt.registerTask('release', [
+		'jshint',
+		'concat',
+		'uglify'
+	]);
 };
