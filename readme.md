@@ -27,6 +27,10 @@ Download the [production version][min] or the [development version][max].
 
 `npm install --save screenfull`
 
+#### [cdnjs](http://cdnjs.com)
+
+`//cdnjs.cloudflare.com/ajax/libs/screenfull.js/1.0.4/screenfull.min.js`
+
 
 ## Why?
 
