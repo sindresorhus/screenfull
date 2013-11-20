@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v1.1.0 - 2013-09-06
+* v1.1.1 - 2013-11-20
 * https://github.com/sindresorhus/screenfull.js
 * (c) Sindre Sorhus; MIT License
 */
@@ -54,8 +54,8 @@
 					'msExitFullscreen',
 					'msFullscreenElement',
 					'msFullscreenEnabled',
-					'MSFullscreenchange',
-					'MSFullscreenerror'
+					'MSFullscreenChange',
+					'MSFullscreenError'
 				]
 			];
 			var i = 0;
