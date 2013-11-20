@@ -49,7 +49,7 @@
 					'msFullscreenElement',
 					'msFullscreenEnabled',
 					'MSFullscreenChange',
-					'MSFullscreenerror'
+					'MSFullscreenError'
 				]
 			];
 			var i = 0;
