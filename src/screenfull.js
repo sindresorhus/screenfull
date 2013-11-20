@@ -48,8 +48,8 @@
 					'msExitFullscreen',
 					'msFullscreenElement',
 					'msFullscreenEnabled',
-					'MSFullscreenchange',
-					'MSFullscreenerror'
+					'MSFullscreenChange',
+					'MSFullscreenError'
 				]
 			];
 			var i = 0;
