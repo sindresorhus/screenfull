@@ -48,7 +48,7 @@
 					'msExitFullscreen',
 					'msFullscreenElement',
 					'msFullscreenEnabled',
-					'MSFullscreenchange',
+					'MSFullscreenChange',
 					'MSFullscreenerror'
 				]
 			];
