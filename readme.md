@@ -1,8 +1,6 @@
 # screenfull.js
 
-[![Views in the last 24 hours](https://sourcegraph.com/api/repos/github.com/sindresorhus/screenfull.js/counters/views-24h.png)](https://sourcegraph.com/github.com/sindresorhus/screenfull.js)
-
-Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have too.
+> Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have too.
 
 
 ### [Demo](http://sindresorhus.com/screenfull.js)
