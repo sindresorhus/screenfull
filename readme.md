@@ -12,24 +12,18 @@
 
 Only 0.7 KB gzipped (1.6 KB minified)
 
-#### Manually
-
 Download the [production version][min] or the [development version][max].
 
 [min]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.min.js
 [max]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.js
 
-#### [Bower](http://bower.io)
+```bash
+$ bower install --save screenfull
+```
 
-`bower install --save screenfull`
-
-#### [npm](https://npmjs.org/package/screenfull)
-
-`npm install --save screenfull`
-
-#### [cdnjs](http://cdnjs.com)
-
-`//cdnjs.cloudflare.com/ajax/libs/screenfull.js/1.0.4/screenfull.min.js`
+```bash
+$ npm install --save screenfull
+```
 
 
 ## Why?
