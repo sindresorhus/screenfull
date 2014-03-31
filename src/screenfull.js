@@ -1,5 +1,5 @@
 /*global Element */
-(function (window, document) {
+(function (window, document, $) {
 	'use strict';
 
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element, // IE6 throws without typeof check
@@ -56,15 +56,14 @@
 			var l = fnMap.length;
 			var ret = {};
 
-			for (; i < l; i++) {
-				val = fnMap[i];
+			$.each(fnMap, function (val) {
 				if (val && val[1] in document) {
 					for (i = 0, valLength = val.length; i < valLength; i++) {
 						ret[fnMap[0][i]] = val[i];
 					}
 					return ret;
 				}
-			}
+			});
 			return false;
 		})(),
 
@@ -72,16 +71,20 @@
 			request: function (elem) {
 				var request = fn.requestFullscreen;
 
-				elem = elem || document.documentElement;
+				elem = $(elem);
+				while (!elem) {
+					elem = $(document);
+					break;
+				}
 
 				// Work around Safari 5.1 bug: reports support for
 				// keyboard in fullscreen even though it doesn't.
 				// Browser sniffing, since the alternative with
 				// setTimeout is even worse.
-				if (/5\.1[\.\d]* Safari/.test(navigator.userAgent)) {
-					elem[request]();
+				if ($.browser.safari) {
+					elem[0][request]();
 				} else {
-					elem[request](keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT);
+					elem[0][request](keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT);
 				}
 			},
 			exit: function () {
@@ -134,4 +137,4 @@
 	});
 
 	window.screenfull = screenfull;
-})(window, document);
+})(window, document, jQuery);
