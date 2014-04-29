@@ -1,5 +1,21 @@
 {
-	"name": "screenfull",
-	"version": "1.1.1",
-	"main": "dist/screenfull.js"
+  "name": "screenfull",
+  "description": "Simple wrapper for cross-browser usage of the JavaScript Fullscreen API, which lets you bring the page or any element into fullscreen.",
+  "license": "MIT",
+  "main": "dist/screenfull.js",
+  "authors": [
+    {
+      "name": "Sindre Sorhus",
+      "email": "sindresorhus@gmail.com",
+      "url": "http://sindresorhus.com"
+    }
+  ],
+  "keywords": [
+    "fullscreen"
+  ],
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "src"
+  ]
 }

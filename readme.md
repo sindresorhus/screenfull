@@ -10,19 +10,19 @@
 
 ## Install
 
-Only 0.7 KB gzipped (1.6 KB minified)
+Only 0.7 kB gzipped.
 
 Download the [production version][min] or the [development version][max].
 
 [min]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.min.js
 [max]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.js
 
-```bash
-$ bower install --save screenfull
+```sh
+$ npm install --save screenfull
 ```
 
-```bash
-$ npm install --save screenfull
+```sh
+$ bower install --save screenfull
 ```
 
 
@@ -30,7 +30,7 @@ $ npm install --save screenfull
 
 ### Screenfull
 
-```javascript
+```js
 if (screenfull.enabled) {
 	screenfull.request();
 }
@@ -38,7 +38,7 @@ if (screenfull.enabled) {
 
 ### Vanilla JavaScript
 
-```javascript
+```js
 document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
 
 function requestFullscreen(element) {
@@ -74,7 +74,7 @@ Safari 5.1 doesn't support use of the keyboard in fullscreen.
 
 #### Fullscreen the page
 
-```javascript
+```js
 document.getElementById('button').addEventListener('click', function () {
 	if (screenfull.enabled) {
 		screenfull.request();
@@ -87,7 +87,7 @@ document.getElementById('button').addEventListener('click', function () {
 
 #### Fullscreen an element
 
-```javascript
+```js
 var elem = document.getElementById('target');
 document.getElementById('button').addEventListener('click', function () {
 	if (screenfull.enabled) {
@@ -99,7 +99,7 @@ document.getElementById('button').addEventListener('click', function () {
 
 #### Fullscreen an element with jQuery
 
-```javascript
+```js
 var target = $('#target')[0]; // Get DOM element from jQuery collection
 $('#button').click(function () {
 	if (screenfull.enabled) {
@@ -111,7 +111,7 @@ $('#button').click(function () {
 
 #### Toggle fullscreen on a image with jQuery
 
-```javascript
+```js
 $('img').click(function () {
 	if (screenfull.enabled) {
 		// We can use `this` since we want the clicked element
@@ -123,7 +123,7 @@ $('img').click(function () {
 
 #### Detect fullscreen change
 
-```javascript
+```js
 if (screenfull.enabled) {
 	document.addEventListener(screenfull.raw.fullscreenchange, function () {
 		console.log('Am I fullscreen? ' + (screenfull.isFullscreen ? 'Yes' : 'No'));
@@ -212,4 +212,4 @@ $(document).on(screenfull.raw.fullscreenchange, function () {
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)
