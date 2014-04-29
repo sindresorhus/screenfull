@@ -2,6 +2,7 @@
 (function (window, document) {
 	'use strict';
 
+	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element, // IE6 throws without typeof check
 
 		fn = (function () {
@@ -100,7 +101,12 @@
 		};
 
 	if (!fn) {
-		window.screenfull = false;
+		if (isCommonjs) {
+			module.exports = false;
+		} else {
+			window.screenfull = false;
+		}
+
 		return;
 	}
 
@@ -133,5 +139,9 @@
 		screenfull.onerror.call(screenfull, e);
 	});
 
-	window.screenfull = screenfull;
 })(window, document);
+	if (isCommonjs) {
+		module.exports = screenfull;
+	} else {
+		window.screenfull = screenfull;
+	}
