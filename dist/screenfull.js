@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v1.2.0 - 2014-04-29
+* v1.2.1 - 2014-05-11
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -8,6 +8,7 @@
 
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
+	var isBrowser = typeof window !== 'undefined';
 
 	var fn = (function () {
 		var val;
@@ -64,13 +65,15 @@
 		var l = fnMap.length;
 		var ret = {};
 
-		for (; i < l; i++) {
-			val = fnMap[i];
-			if (val && val[1] in document) {
-				for (i = 0, valLength = val.length; i < valLength; i++) {
-					ret[fnMap[0][i]] = val[i];
+		if (isBrowser) {
+			for (; i < l; i++) {
+				val = fnMap[i];
+				if (val && val[1] in document) {
+					for (i = 0, valLength = val.length; i < valLength; i++) {
+						ret[fnMap[0][i]] = val[i];
+					}
+					return ret;
 				}
-				return ret;
 			}
 		}
 
@@ -139,13 +142,15 @@
 		}
 	});
 
-	document.addEventListener(fn.fullscreenchange, function (e) {
-		screenfull.onchange.call(screenfull, e);
-	});
+	if (isBrowser) {
+		document.addEventListener(fn.fullscreenchange, function (e) {
+			screenfull.onchange.call(screenfull, e);
+		});
 
-	document.addEventListener(fn.fullscreenerror, function (e) {
-		screenfull.onerror.call(screenfull, e);
-	});
+		document.addEventListener(fn.fullscreenerror, function (e) {
+			screenfull.onerror.call(screenfull, e);
+		});
+	}
 
 	if (isCommonjs) {
 		module.exports = screenfull;
