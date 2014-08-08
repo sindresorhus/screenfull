@@ -144,16 +144,6 @@
 				<p>Click the image to make it fullscreen</p>
 				<img width="500" height="206" id="demo-img" src="http://sindresorhus.com/img/slideshow/4.jpg">
 			</section>
-			<hr>
-			<section>
-				<p>Click the video to make it fullscreen</p>
-				<video id="demo-video" width="500" height="281" poster="http://wroug.com/stuff/host/demo-video/poster-500px.jpg" controls>
-					<source src="http://wroug.com/stuff/host/demo-video/midnight_sun_sv1_720p.mp4">
-					<source src="http://wroug.com/stuff/host/demo-video/midnight_sun_sv1_720p.webm">
-				</video>
-				<small>Press Esc to exit</small>
-				<p style="font-size:12px">Video by <a href="http://scientifantastic.com">Joe Capra</a></p>
-			</section>
 		</section>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		<script type="text/javascript">
@@ -192,10 +182,6 @@
 			});
 
 			$('#demo-img').click(function () {
-				screenfull.toggle(this);
-			});
-
-			$('#demo-video').click(function () {
 				screenfull.toggle(this);
 			});
 
