@@ -131,6 +131,15 @@ if (screenfull.enabled) {
 }
 ```
 
+#### Detect fullscreen error
+
+```js
+if (screenfull.enabled) {
+	document.addEventListener(screenfull.raw.fullscreenerror, function (event) {
+		console.error('Failed to enable fullscreen', event);
+	});
+}
+
 See the [demo](http://sindresorhus.com/screenfull.js) for more examples, and view the source.
 
 You can check for fullscreen support by checking the truthy/falsy value of `screenfull` as done in the example above.
@@ -155,26 +164,6 @@ Brings you out of fullscreen.
 #### .toggle()
 
 Requests fullscreen if not active, otherwise exits.
-
-#### .onchange()
-
-<del>Override this method to get notified about fullscreen changes.</del>
-
-You should rather use a real event listener:
-
-```js
-document.addEventListener(screenfull.raw.fullscreenchange, function () {});
-```
-
-#### .onerror()
-
-<del>Override this method to get notified about fullscreen errors.</del>
-
-You should rather use a real event listener:
-
-```js
-document.addEventListener(screenfull.raw.fullscreenerror, function () {});
-```
 
 
 ### Properties

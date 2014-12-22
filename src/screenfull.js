@@ -98,8 +98,6 @@
 				this.request(elem);
 			}
 		},
-		onchange: function () {},
-		onerror: function () {},
 		raw: fn
 	};
 
@@ -132,14 +130,6 @@
 				return !!document[fn.fullscreenEnabled];
 			}
 		}
-	});
-
-	document.addEventListener(fn.fullscreenchange, function (e) {
-		screenfull.onchange.call(screenfull, e);
-	});
-
-	document.addEventListener(fn.fullscreenerror, function (e) {
-		screenfull.onerror.call(screenfull, e);
 	});
 
 	if (isCommonjs) {
