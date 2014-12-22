@@ -63,7 +63,7 @@ if (document.fullscreenEnabled) {
 
 [Supported browsers](http://caniuse.com/fullscreen)
 
-Safari 5.1+ doesn't support use of the keyboard in fullscreen.
+Safari doesn't support use of the keyboard in fullscreen.
 
 
 ## Documentation
@@ -139,10 +139,9 @@ if (screenfull.enabled) {
 		console.error('Failed to enable fullscreen', event);
 	});
 }
+```
 
 See the [demo](http://sindresorhus.com/screenfull.js) for more examples, and view the source.
-
-You can check for fullscreen support by checking the truthy/falsy value of `screenfull` as done in the example above.
 
 
 ### Methods

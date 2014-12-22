@@ -1,6 +1,6 @@
 {
   "name": "screenfull",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Simple wrapper for cross-browser usage of the JavaScript Fullscreen API, which lets you bring the page or any element into fullscreen.",
   "license": "MIT",
   "repository": "sindresorhus/screenfull.js",
@@ -21,10 +21,10 @@
     "fullscreen"
   ],
   "devDependencies": {
-    "grunt": "^0.4.1",
-    "grunt-contrib-concat": "^0.4.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-uglify": "^0.4.0",
-    "load-grunt-tasks": "^0.4.0"
+    "grunt-contrib-uglify": "^0.6.0",
+    "load-grunt-tasks": "^1.0.0"
   }
 }

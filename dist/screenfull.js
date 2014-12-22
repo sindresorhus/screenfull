@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v1.2.0 - 2014-04-29
+* v2.0.0 - 2014-12-22
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -103,8 +103,6 @@
 				this.request(elem);
 			}
 		},
-		onchange: function () {},
-		onerror: function () {},
 		raw: fn
 	};
 
@@ -137,14 +135,6 @@
 				return !!document[fn.fullscreenEnabled];
 			}
 		}
-	});
-
-	document.addEventListener(fn.fullscreenchange, function (e) {
-		screenfull.onchange.call(screenfull, e);
-	});
-
-	document.addEventListener(fn.fullscreenerror, function (e) {
-		screenfull.onerror.call(screenfull, e);
 	});
 
 	if (isCommonjs) {

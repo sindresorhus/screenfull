@@ -14,8 +14,7 @@
     "fullscreen"
   ],
   "ignore": [
-    "**/.*",
-    "package.json",
-    "src"
+    "**/*",
+    "!dist/screenfull.js"
   ]
 }
