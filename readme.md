@@ -25,6 +25,8 @@ $ npm install --save screenfull
 $ bower install --save screenfull
 ```
 
+Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
+
 
 ## Why?
 
