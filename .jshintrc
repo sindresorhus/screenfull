@@ -15,5 +15,8 @@
 	"unused": "vars",
 	"strict": true,
 	"trailing": true,
-	"smarttabs": true
+	"smarttabs": true,
+	"globals" : {
+		"define": false
+	}
 }
