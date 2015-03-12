@@ -1,8 +1,22 @@
-(function () {
+(function (root, factory) {
 	'use strict';
 
-	var isCommonjs = typeof module !== 'undefined' && module.exports;
-	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define('screenfull',[], factory);
+	} else if (typeof exports === 'object') {
+		// Node. Does not work with strict CommonJS, but
+		// only CommonJS-like environments that support module.exports,
+		// like Node.
+		module.exports = factory();
+	} else {
+		// Browser globals (root is window)
+		root.screenfull = factory();
+  }
+}(this, function () {
+	'use strict';
+
+		var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
 	var fn = (function () {
 		var val;
@@ -102,13 +116,7 @@
 	};
 
 	if (!fn) {
-		if (isCommonjs) {
-			module.exports = false;
-		} else {
-			window.screenfull = false;
-		}
-
-		return;
+		return false;
 	}
 
 	Object.defineProperties(screenfull, {
@@ -132,9 +140,5 @@
 		}
 	});
 
-	if (isCommonjs) {
-		module.exports = screenfull;
-	} else {
-		window.screenfull = screenfull;
-	}
-})();
+	return screenfull;
+}));
