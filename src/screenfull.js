@@ -131,6 +131,11 @@
 			}
 		}
 	});
+	
+	(window.jQuery || window.zepto || {fn:{extend:function(){}}}).fn.extend({
+		isFullScreen: function () { return screenfull.isFullscreen(this); },
+		request: screenfull.request.bind(screenfull)
+	})
 
 	if (isCommonjs) {
 		module.exports = screenfull;
