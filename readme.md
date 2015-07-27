@@ -145,6 +145,16 @@ if (screenfull.enabled) {
 
 See the [demo](http://sindresorhus.com/screenfull.js) for more examples, and view the source.
 
+#### Fullscreen an element with Angular.js
+
+You can use the [Angular.js binding](https://github.com/hrajchert/angular-screenfull) to do something like:
+
+```html
+<div ngsf-fullscreen>
+    <p>This is a fullscreen element</p>
+    <button ngsf-toggle-fullscreen>Toggle fullscreen</button>
+</div>
+```
 
 ### Methods
 
