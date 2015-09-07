@@ -1,11 +1,12 @@
 /*!
 * screenfull
-* v2.0.0 - 2014-12-22
+* v2.0.1 - 2015-09-07
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
 	'use strict';
 
+	var isBrowser = typeof window !== 'undefined';
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
@@ -64,13 +65,15 @@
 		var l = fnMap.length;
 		var ret = {};
 
-		for (; i < l; i++) {
-			val = fnMap[i];
-			if (val && val[1] in document) {
-				for (i = 0, valLength = val.length; i < valLength; i++) {
-					ret[fnMap[0][i]] = val[i];
+		if (isBrowser) {
+			for (; i < l; i++) {
+				val = fnMap[i];
+				if (val && val[1] in document) {
+					for (i = 0, valLength = val.length; i < valLength; i++) {
+						ret[fnMap[0][i]] = val[i];
+					}
+					return ret;
 				}
-				return ret;
 			}
 		}
 
