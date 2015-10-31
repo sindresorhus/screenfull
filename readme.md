@@ -202,6 +202,33 @@ $(document).on(screenfull.raw.fullscreenchange, function () {
 ```
 
 
+## FAQ
+
+### How can I navigate to a new page when fullscreen?
+
+That's not supported by browsers for security reasons. There is, however, a dirty workaround. Create a seamless iframe that fills the screen and navigate to the page in that instead.
+
+```js
+$('#new-page-btn').click(function () {
+	var iframe = document.createElement('iframe')
+
+	iframe.setAttribute('id', 'external-iframe');
+	iframe.setAttribute('src', 'http://new-page-website.com');
+	iframe.setAttribute('frameborder', 'no');
+	iframe.style.position = 'absolute';
+	iframe.style.top = '0';
+	iframe.style.right = '0';
+	iframe.style.bottom = '0';
+	iframe.style.left = '0';
+	iframe.style.width = '100%';
+	iframe.style.height = '100%';
+
+	$(document.body).prepend(iframe);
+	document.body.style.overflow = 'hidden';
+});
+```
+
+
 ## Resources
 
 - [Using the Fullscreen API in web browsers](http://hacks.mozilla.org/2012/01/using-the-fullscreen-api-in-web-browsers/)

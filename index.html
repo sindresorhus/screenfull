@@ -132,11 +132,6 @@
 			<input autofocus placeholder="Keyboard test">
 			<hr>
 			<section>
-				<p>How to open external pages while in fullscreen</p>
-				<button id="iframe">Click when in fullscreen</button>
-			</section>
-			<hr>
-			<section>
 				<p>Click the image to make it fullscreen</p>
 				<img width="500" height="206" id="demo-img" src="https://sindresorhus.com/img/slideshow/4.jpg">
 			</section>
@@ -179,25 +174,6 @@
 
 			$('#demo-img').click(function () {
 				screenfull.toggle(this);
-			});
-
-			// a little hack to be able to switch pages while in fullscreen.
-			// we basically just creates a seamless iframe and navigate in that instead.
-			$('#iframe').click(function () {
-				// We create an iframe and fill the window with it
-				var iframe = document.createElement('iframe')
-				iframe.setAttribute('id', 'external-iframe');
-				iframe.setAttribute('src', 'https://sindresorhus.com/hi');
-				iframe.setAttribute('frameborder', 'no');
-				iframe.style.position = 'absolute';
-				iframe.style.top = '0';
-				iframe.style.right = '0';
-				iframe.style.bottom = '0';
-				iframe.style.left = '0';
-				iframe.style.width = '100%';
-				iframe.style.height = '100%';
-				$('#container').prepend(iframe);
-				document.body.style.overflow = 'hidden';
 			});
 
 			function fullscreenchange() {
