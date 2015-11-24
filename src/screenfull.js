@@ -114,7 +114,7 @@
 	Object.defineProperties(screenfull, {
 		isFullscreen: {
 			get: function () {
-				return !!document[fn.fullscreenElement];
+				return Boolean(document[fn.fullscreenElement]);
 			}
 		},
 		element: {
@@ -127,7 +127,7 @@
 			enumerable: true,
 			get: function () {
 				// Coerce to boolean in case of old WebKit
-				return !!document[fn.fullscreenEnabled];
+				return Boolean(document[fn.fullscreenEnabled]);
 			}
 		}
 	});
