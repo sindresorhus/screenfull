@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v2.0.0 - 2014-12-22
+* v3.0.0 - 2015-11-24
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -119,7 +119,7 @@
 	Object.defineProperties(screenfull, {
 		isFullscreen: {
 			get: function () {
-				return !!document[fn.fullscreenElement];
+				return Boolean(document[fn.fullscreenElement]);
 			}
 		},
 		element: {
@@ -132,7 +132,7 @@
 			enumerable: true,
 			get: function () {
 				// Coerce to boolean in case of old WebKit
-				return !!document[fn.fullscreenEnabled];
+				return Boolean(document[fn.fullscreenEnabled]);
 			}
 		}
 	});
