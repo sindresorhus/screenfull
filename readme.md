@@ -17,8 +17,16 @@ Download the [production version][min] or the [development version][max].
 [min]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.min.js
 [max]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.js
 
+#### Npm
+
 ```
 $ npm install --save screenfull
+```
+
+#### Bower
+
+```
+$ bower install --save screenfull
 ```
 
 Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
