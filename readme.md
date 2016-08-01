@@ -101,7 +101,7 @@ document.getElementById('button').addEventListener('click', () => {
 ```js
 const target = $('#target')[0]; // Get DOM element from jQuery collection
 
-$('#button').click(() => {
+$('#button').on('click', () => {
 	if (screenfull.enabled) {
 		screenfull.request(target);
 	}
@@ -112,10 +112,9 @@ $('#button').click(() => {
 #### Toggle fullscreen on a image with jQuery
 
 ```js
-$('img').click(() => {
+$('img').on('click', event => {
 	if (screenfull.enabled) {
-		// We can use `this` since we want the clicked element
-		screenfull.toggle(this);
+		screenfull.toggle(event.target);
 	}
 });
 ```
