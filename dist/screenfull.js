@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v3.0.0 - 2015-11-24
+* v3.0.0 - 2016-08-10
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -66,7 +66,7 @@
 
 		for (; i < l; i++) {
 			val = fnMap[i];
-			if (val && val[1] in document) {
+			if (val && val[1] in top.document) {
 				for (i = 0, valLength = val.length; i < valLength; i++) {
 					ret[fnMap[0][i]] = val[i];
 				}
@@ -81,7 +81,7 @@
 		request: function (elem) {
 			var request = fn.requestFullscreen;
 
-			elem = elem || document.documentElement;
+			elem = elem || top.document.documentElement;
 
 			// Work around Safari 5.1 bug: reports support for
 			// keyboard in fullscreen even though it doesn't.
@@ -94,7 +94,7 @@
 			}
 		},
 		exit: function () {
-			document[fn.exitFullscreen]();
+			top.document[fn.exitFullscreen]();
 		},
 		toggle: function (elem) {
 			if (this.isFullscreen) {
@@ -119,20 +119,20 @@
 	Object.defineProperties(screenfull, {
 		isFullscreen: {
 			get: function () {
-				return Boolean(document[fn.fullscreenElement]);
+				return Boolean(top.document[fn.fullscreenElement]);
 			}
 		},
 		element: {
 			enumerable: true,
 			get: function () {
-				return document[fn.fullscreenElement];
+				return top.document[fn.fullscreenElement];
 			}
 		},
 		enabled: {
 			enumerable: true,
 			get: function () {
 				// Coerce to boolean in case of old WebKit
-				return Boolean(document[fn.fullscreenEnabled]);
+				return Boolean(top.document[fn.fullscreenEnabled]);
 			}
 		}
 	});
