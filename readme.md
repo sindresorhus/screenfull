@@ -158,6 +158,28 @@ You can use the [Angular.js binding](https://github.com/hrajchert/angular-screen
 </div>
 ```
 
+#### Fullscreen the page with Angular 2
+
+```typescript
+import { Directive, HostListener } from '@angular/core';
+const screenfull = require('screenfull');
+
+@Directive({
+    selector: '[toggleFullscreen]'
+})
+export class ToggleFullscreenDirective {
+    @HostListener('click') onClick() {
+        if (screenfull.enabled) {
+            screenfull.toggle();
+        }
+    }
+}
+```
+
+```html
+<button toggleFullscreen>Toggle fullscreen<button>
+```
+
 ### Methods
 
 #### .request()
