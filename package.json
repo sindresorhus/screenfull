@@ -1,6 +1,6 @@
 {
   "name": "screenfull",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Simple wrapper for cross-browser usage of the JavaScript Fullscreen API, which lets you bring the page or any element into fullscreen.",
   "license": "MIT",
   "repository": "sindresorhus/screenfull.js",

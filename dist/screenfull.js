@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v3.0.0 - 2015-11-24
+* v3.0.3 - 2017-01-24
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -133,6 +133,18 @@
 			get: function () {
 				// Coerce to boolean in case of old WebKit
 				return Boolean(document[fn.fullscreenEnabled]);
+			}
+		},
+		change: {
+			enumerable: true,
+			get: function () {
+				return fn.fullscreenchange;
+			}
+		},
+		error: {
+			enumerable: true,
+			get: function () {
+				return fn.fullscreenerror;
 			}
 		}
 	});
