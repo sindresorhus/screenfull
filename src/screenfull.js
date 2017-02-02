@@ -6,8 +6,7 @@
 
 	var fn = (function () {
 		var val;
-		var valLength;
-
+		
 		var fnMap = [
 			[
 				'requestFullscreen',
@@ -62,7 +61,7 @@
 		for (; i < l; i++) {
 			val = fnMap[i];
 			if (val && val[1] in document) {
-				for (i = 0, valLength = val.length; i < valLength; i++) {
+				for (i = 0; i < val.length; i++) {
 					ret[fnMap[0][i]] = val[i];
 				}
 				return ret;
