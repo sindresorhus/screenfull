@@ -128,6 +128,18 @@
 				// Coerce to boolean in case of old WebKit
 				return Boolean(document[fn.fullscreenEnabled]);
 			}
+		},
+		change: {
+			enumerable: true,
+			get: function () {
+				return fn.fullscreenchange;
+			}
+		},
+		error: {
+			enumerable: true,
+			get: function () {
+				return fn.fullscreenerror;
+			}
 		}
 	});
 
