@@ -97,6 +97,9 @@
 				this.request(elem);
 			}
 		},
+		onchange: function(callback) {
+			document.addEventListener(fn.fullscreenchange, callback, false);
+		}
 		raw: fn
 	};
 
