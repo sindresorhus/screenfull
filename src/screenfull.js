@@ -97,11 +97,11 @@
 				this.request(elem);
 			}
 		},
-		onchange: function(callback) {
+		onchange: function (callback) {
 			document.addEventListener(fn.fullscreenchange, callback, false);
 		},
-		onerror: function(callback) {
-		  document.addEventListener(fn.fullscreenerror, callback, false);
+		onerror: function (callback) {
+			document.addEventListener(fn.fullscreenerror, callback, false);
 		},
 		raw: fn
 	};
