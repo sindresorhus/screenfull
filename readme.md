@@ -74,7 +74,6 @@ Safari doesn't support use of the keyboard in fullscreen.
 
 ### Examples
 
-
 #### Fullscreen the page
 
 ```js
@@ -87,19 +86,17 @@ document.getElementById('button').addEventListener('click', () => {
 });
 ```
 
-
 #### Fullscreen an element
 
 ```js
-const elem = document.getElementById('target');
+const el = document.getElementById('target');
 
 document.getElementById('button').addEventListener('click', () => {
 	if (screenfull.enabled) {
-		screenfull.request(elem);
+		screenfull.request(el);
 	}
 });
 ```
-
 
 #### Fullscreen an element with jQuery
 
@@ -113,7 +110,6 @@ $('#button').on('click', () => {
 });
 ```
 
-
 #### Toggle fullscreen on a image with jQuery
 
 ```js
@@ -124,13 +120,12 @@ $('img').on('click', event => {
 });
 ```
 
-
 #### Detect fullscreen change
 
 ```js
 if (screenfull.enabled) {
 	screenfull.onchange(() => {
-		console.log('Am I fullscreen? ' + (screenfull.isFullscreen ? 'Yes' : 'No'));
+		console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
 	});
 }
 ```
@@ -153,26 +148,26 @@ You can use the [Angular.js binding](https://github.com/hrajchert/angular-screen
 
 ```html
 <div ngsf-fullscreen>
-    <p>This is a fullscreen element</p>
-    <button ngsf-toggle-fullscreen>Toggle fullscreen</button>
+	<p>This is a fullscreen element</p>
+	<button ngsf-toggle-fullscreen>Toggle fullscreen</button>
 </div>
 ```
 
 #### Fullscreen the page with Angular 2
 
 ```typescript
-import { Directive, HostListener } from '@angular/core';
+import {Directive, HostListener} from '@angular/core';
 const screenfull = require('screenfull');
 
 @Directive({
-    selector: '[toggleFullscreen]'
+	selector: '[toggleFullscreen]'
 })
 export class ToggleFullscreenDirective {
-    @HostListener('click') onClick() {
-        if (screenfull.enabled) {
-            screenfull.toggle();
-        }
-    }
+	@HostListener('click') onClick() {
+		if (screenfull.enabled) {
+			screenfull.toggle();
+		}
+	}
 }
 ```
 
@@ -200,11 +195,13 @@ Brings you out of fullscreen.
 
 Requests fullscreen if not active, otherwise exits.
 
-#### .onchange()
-Add a listener for fullscreenchange event
+#### .onchange(function)
 
-#### .onerror()
-Add a listener for fullscreenerror event
+Add a listener for when the browser switches in and out of fullscreen.
+
+#### .onerror(function)
+
+Add a listener for when the browser cannot switch to fullscreen.
 
 ### Properties
 
@@ -223,12 +220,6 @@ Returns a boolean whether you are allowed to enter fullscreen. If your page is i
 #### .raw
 
 Exposes the raw properties (prefixed if needed) used internally: `requestFullscreen`, `exitFullscreen`, `fullscreenElement`, `fullscreenEnabled`, `fullscreenchange`, `fullscreenerror`
-
-```js
-$(document).on(screenfull.raw.fullscreenchange, () => {
-	console.log('Fullscreen change');
-});
-```
 
 
 ## FAQ
