@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v3.0.0 - 2015-11-24
+* v3.0.2 - 2017-03-13
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -11,7 +11,6 @@
 
 	var fn = (function () {
 		var val;
-		var valLength;
 
 		var fnMap = [
 			[
@@ -67,7 +66,7 @@
 		for (; i < l; i++) {
 			val = fnMap[i];
 			if (val && val[1] in document) {
-				for (i = 0, valLength = val.length; i < valLength; i++) {
+				for (i = 0; i < val.length; i++) {
 					ret[fnMap[0][i]] = val[i];
 				}
 				return ret;
@@ -87,7 +86,7 @@
 			// keyboard in fullscreen even though it doesn't.
 			// Browser sniffing, since the alternative with
 			// setTimeout is even worse.
-			if (/5\.1[\.\d]* Safari/.test(navigator.userAgent)) {
+			if (/5\.1[.\d]* Safari/.test(navigator.userAgent)) {
 				elem[request]();
 			} else {
 				elem[request](keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT);
@@ -102,6 +101,12 @@
 			} else {
 				this.request(elem);
 			}
+		},
+		onchange: function (callback) {
+			document.addEventListener(fn.fullscreenchange, callback, false);
+		},
+		onerror: function (callback) {
+			document.addEventListener(fn.fullscreenerror, callback, false);
 		},
 		raw: fn
 	};
