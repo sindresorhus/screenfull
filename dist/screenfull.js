@@ -1,11 +1,12 @@
 /*!
 * screenfull
-* v3.0.2 - 2017-03-13
+* v3.2.0 - 2017-04-16
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
 	'use strict';
 
+	var document = typeof window === 'undefined' ? {} : window.document;
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
@@ -21,7 +22,7 @@
 				'fullscreenchange',
 				'fullscreenerror'
 			],
-			// new WebKit
+			// New WebKit
 			[
 				'webkitRequestFullscreen',
 				'webkitExitFullscreen',
@@ -31,7 +32,7 @@
 				'webkitfullscreenerror'
 
 			],
-			// old WebKit (Safari 5.1)
+			// Old WebKit (Safari 5.1)
 			[
 				'webkitRequestFullScreen',
 				'webkitCancelFullScreen',
