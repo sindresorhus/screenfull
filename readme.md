@@ -157,7 +157,7 @@ You can use the [Angular.js binding](https://github.com/hrajchert/angular-screen
 
 ```typescript
 import {Directive, HostListener} from '@angular/core';
-const screenfull = require('screenfull');
+import * as screenfull from 'screenfull';
 
 @Directive({
 	selector: '[toggleFullscreen]'
