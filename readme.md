@@ -155,6 +155,7 @@ You can use the [Angular.js binding](https://github.com/hrajchert/angular-screen
 
 #### Fullscreen the page with Angular 2
 
+#####Create the directive toggle-full-screen.directive.ts
 ```typescript
 import {Directive, HostListener} from '@angular/core';
 import * as screenfull from 'screenfull';
@@ -171,6 +172,22 @@ export class ToggleFullscreenDirective {
 }
 ```
 
+#####Declare the directive in the app.module.ts
+```
+...
+import { ToggleFullscreenDirective } from './toggle-full-screen.directive';
+
+@NgModule({
+  declarations: [
+    ...
+    ToggleFullscreenDirective,
+    ...
+  ],
+  imports: [
+  ...
+```
+
+#####Use the directive
 ```html
 <button toggleFullscreen>Toggle fullscreen<button>
 ```
