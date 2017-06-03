@@ -61,7 +61,7 @@
 
 		for (; i < l; i++) {
 			val = fnMap[i];
-			if (val && val[1] in document) {
+			if (document && val && val[1] in document) {
 				for (i = 0; i < val.length; i++) {
 					ret[fnMap[0][i]] = val[i];
 				}
