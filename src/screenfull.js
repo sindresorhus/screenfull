@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var document = typeof window === 'undefined' ? {} : window.document;
+	var document = typeof window.document !== 'undefined' ? window.document : {};
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
@@ -61,7 +61,7 @@
 
 		for (; i < l; i++) {
 			val = fnMap[i];
-			if (document && val && val[1] in document) {
+			if (val && val[1] in document) {
 				for (i = 0; i < val.length; i++) {
 					ret[fnMap[0][i]] = val[i];
 				}
