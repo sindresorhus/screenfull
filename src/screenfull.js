@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var document = typeof window.document !== 'undefined' ? window.document : {};
+	var document = window && typeof window.document !== 'undefined' ? window.document : {};
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
