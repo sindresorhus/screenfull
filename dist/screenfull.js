@@ -1,12 +1,12 @@
 /*!
 * screenfull
-* v3.2.1 - 2017-06-09
+* v3.2.2 - 2017-06-14
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
 	'use strict';
 
-	var document = window && typeof window.document !== 'undefined' ? window.document : {};
+	var document = typeof window !== 'undefined' && typeof window.document !== 'undefined' ? window.document : {};
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
 	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
