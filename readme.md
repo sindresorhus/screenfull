@@ -124,17 +124,23 @@ $('img').on('click', event => {
 
 ```js
 if (screenfull.enabled) {
-	screenfull.onchange(() => {
+	screenfull.on('change', () => {
 		console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
 	});
 }
+```
+
+Remove listeners with:
+
+```js
+screenfull.off('change', callback);
 ```
 
 #### Detect fullscreen error
 
 ```js
 if (screenfull.enabled) {
-	screenfull.onerror(event => {
+	screenfull.on('error', event => {
 		console.error('Failed to enable fullscreen', event);
 	});
 }
@@ -195,13 +201,22 @@ Brings you out of fullscreen.
 
 Requests fullscreen if not active, otherwise exits.
 
+#### .on(event, function)
+
+Add a listener for when the browser switches in and out of fullscreen or when there is an error.
+Events: `change`, `error`.
+
+#### .off(event, function)
+
+Remove a previously registered event listener.
+
 #### .onchange(function)
 
-Add a listener for when the browser switches in and out of fullscreen.
+Alias for `.on('change', function)`
 
 #### .onerror(function)
 
-Add a listener for when the browser cannot switch to fullscreen.
+Alias for `.on('error', function)`
 
 ### Properties
 

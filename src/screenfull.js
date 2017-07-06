@@ -72,6 +72,11 @@
 		return false;
 	})();
 
+	var eventNameMap = {
+		change: fn.fullscreenchange,
+		error: fn.fullscreenerror
+	};
+
 	var screenfull = {
 		request: function (elem) {
 			var request = fn.requestFullscreen;
@@ -99,10 +104,22 @@
 			}
 		},
 		onchange: function (callback) {
-			document.addEventListener(fn.fullscreenchange, callback, false);
+			this.on('change', callback);
 		},
 		onerror: function (callback) {
-			document.addEventListener(fn.fullscreenerror, callback, false);
+			this.on('error', callback);
+		},
+		on: function (event, callback) {
+			var evName = eventNameMap[event];
+			if (evName) {
+				document.addEventListener(evName, callback, false);
+			}
+		},
+		off: function (event, callback) {
+			var evName = eventNameMap[event];
+			if (evName) {
+				document.off(evName, callback, false);
+			}
 		},
 		raw: fn
 	};
