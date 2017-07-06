@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v3.3.0 - 2017-07-06
+* v3.3.1 - 2017-07-07
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -123,7 +123,7 @@
 		off: function (event, callback) {
 			var eventName = eventNameMap[event];
 			if (eventName) {
-				document.off(eventName, callback, false);
+				document.removeEventListener(eventName, callback, false);
 			}
 		},
 		raw: fn
