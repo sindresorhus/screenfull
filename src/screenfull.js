@@ -118,7 +118,7 @@
 		off: function (event, callback) {
 			var eventName = eventNameMap[event];
 			if (eventName) {
-				document.off(eventName, callback, false);
+				document.removeEventListener(eventName, callback, false);
 			}
 		},
 		raw: fn
