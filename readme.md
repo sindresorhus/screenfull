@@ -203,8 +203,9 @@ Requests fullscreen if not active, otherwise exits.
 
 #### .on(event, function)
 
+Events: `change` `error`
+
 Add a listener for when the browser switches in and out of fullscreen or when there is an error.
-Events: `change`, `error`.
 
 #### .off(event, function)
 

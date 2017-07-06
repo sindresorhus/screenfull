@@ -110,15 +110,15 @@
 			this.on('error', callback);
 		},
 		on: function (event, callback) {
-			var evName = eventNameMap[event];
-			if (evName) {
-				document.addEventListener(evName, callback, false);
+			var eventName = eventNameMap[event];
+			if (eventName) {
+				document.addEventListener(eventName, callback, false);
 			}
 		},
 		off: function (event, callback) {
-			var evName = eventNameMap[event];
-			if (evName) {
-				document.off(evName, callback, false);
+			var eventName = eventNameMap[event];
+			if (eventName) {
+				document.off(eventName, callback, false);
 			}
 		},
 		raw: fn
