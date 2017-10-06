@@ -31,6 +31,11 @@ $ npm install --save screenfull
 Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
 
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/tmkVF4Qm7RNE8e9RVwnim6gU/sindresorhus/screenfull.js'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/tmkVF4Qm7RNE8e9RVwnim6gU/sindresorhus/screenfull.js.svg' />
+</a>
+
+
 ## Why?
 
 ### Screenfull
