@@ -188,6 +188,29 @@ export class ToggleFullscreenDirective {
 <button toggleFullscreen>Toggle fullscreen<button>
 ```
 
+#### Toggle fullscreen on a image with Angular 2
+
+```typescript
+import {Directive, HostListener} from '@angular/core';
+import * as screenfull from 'screenfull';
+
+@Directive({
+	selector: '[toggleFullscreen]'
+})
+export class ToggleFullscreenDirective {
+	@HostListener('click') onClick() {
+		if (screenfull.enabled) {
+			screenfull.toggle(event.target;
+		}
+	}
+}
+```
+
+```html
+<img toggleFullScreen src="assets/img/cherries.jpg" alt="Cherries" />
+```
+
+
 ### Methods
 
 #### .request()
