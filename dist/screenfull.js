@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v3.3.1 - 2017-07-07
+* v3.3.2 - 2017-10-27
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -92,7 +92,7 @@
 			// keyboard in fullscreen even though it doesn't.
 			// Browser sniffing, since the alternative with
 			// setTimeout is even worse.
-			if (/5\.1[.\d]* Safari/.test(navigator.userAgent)) {
+			if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
 				elem[request]();
 			} else {
 				elem[request](keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT);
