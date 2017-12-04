@@ -68,8 +68,6 @@ if (document.fullscreenEnabled) {
 
 [Supported browsers](http://caniuse.com/fullscreen)
 
-Safari doesn't support use of the keyboard in fullscreen.
-
 
 ## Documentation
 
