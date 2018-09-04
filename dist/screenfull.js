@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v3.3.2 - 2017-10-27
+* v3.3.3 - 2018-09-04
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -95,7 +95,7 @@
 			if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
 				elem[request]();
 			} else {
-				elem[request](keyboardAllowed && Element.ALLOW_KEYBOARD_INPUT);
+				elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
 			}
 		},
 		exit: function () {
