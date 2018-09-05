@@ -67,6 +67,9 @@ if (document.fullscreenEnabled) {
 ## Support
 
 [Supported browsers](http://caniuse.com/fullscreen)
+  
+**Note:** In order to use this plugin in IE browsers be sure that you have a [promise polyfill](https://github.com/stefanpenner/es6-promise) in place
+
 
 
 ## Documentation

@@ -155,17 +155,23 @@
 			}
 
 			$('#request').click(function () {
-				screenfull.request($('#container')[0]);
+				screenfull.request($('#container')[0]).then(function () {
+					console.log('Browser entered fullscreen mode')
+				})
 				// Does not require jQuery. Can be used like this too:
 				// screenfull.request(document.getElementById('container'));
 			});
 
 			$('#exit').click(function () {
-				screenfull.exit();
+				screenfull.exit().then(function () {
+					console.log('Browser exit full screen mode')
+				});
 			});
 
 			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
+				screenfull.toggle($('#container')[0]).then(function () {
+					console.log('Full screen mode ' + (screenfull.isFullscreen ? 'enabled' : 'disabled'))
+				});
 			});
 
 			$('#request2').click(function () {
