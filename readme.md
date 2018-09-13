@@ -196,19 +196,19 @@ If your page is inside an `<iframe>` you will need to add a `allowfullscreen` at
 
 Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
-Returns a promise that resolves when element enters fullscreen
+Returns a promise that resolves after element enters fullscreen
 
 #### .exit()
 
 Brings you out of fullscreen.
 
-Returns a promise that resolves when element exits fullscreen
+Returns a promise that resolves after element exits fullscreen
 
 #### .toggle()
 
 Requests fullscreen if not active, otherwise exits.
 
-Returns a promise that resolves after toggle action finish
+Returns a promise that resolves after toggle action finishes
 
 #### .on(event, function)
 
