@@ -68,7 +68,7 @@ if (document.fullscreenEnabled) {
 
 [Supported browsers](http://caniuse.com/fullscreen)
   
-**Note:** In order to use this plugin in IE browsers be sure that you have a [promise polyfill](https://github.com/stefanpenner/es6-promise) in place
+**Note:** In order to use this package in Internet Explorer, you need a [`Promise` polyfill](https://github.com/stefanpenner/es6-promise).
 
 
 
@@ -196,19 +196,19 @@ If your page is inside an `<iframe>` you will need to add a `allowfullscreen` at
 
 Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
-Returns a promise that resolves after element enters fullscreen
+Returns a promise that resolves after the element enters fullscreen.
 
 #### .exit()
 
 Brings you out of fullscreen.
 
-Returns a promise that resolves after element exits fullscreen
+Returns a promise that resolves after the element exits fullscreen.
 
 #### .toggle()
 
 Requests fullscreen if not active, otherwise exits.
 
-Returns a promise that resolves after toggle action finishes
+Returns a promise that resolves after the element enters/exits fullscreen.
 
 #### .on(event, function)
 
