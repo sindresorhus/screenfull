@@ -164,13 +164,13 @@
 
 			$('#exit').click(function () {
 				screenfull.exit().then(function () {
-					console.log('Browser exit full screen mode')
+					console.log('Browser exited fullscreen mode')
 				});
 			});
 
 			$('#toggle').click(function () {
 				screenfull.toggle($('#container')[0]).then(function () {
-					console.log('Fullscreen mode ' + (screenfull.isFullscreen ? 'enabled' : 'disabled'))
+					console.log('Fullscreen mode: ' + (screenfull.isFullscreen ? 'enabled' : 'disabled'))
 				});
 			});
 
