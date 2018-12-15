@@ -25,7 +25,7 @@ Download the [production version][min] or the [development version][max].
 [max]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.js
 
 ```
-$ npm install --save screenfull
+$ npm install screenfull
 ```
 
 Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
@@ -67,7 +67,7 @@ if (document.fullscreenEnabled) {
 ## Support
 
 [Supported browsers](http://caniuse.com/fullscreen)
-  
+
 **Note:** In order to use this package in Internet Explorer, you need a [`Promise` polyfill](https://github.com/stefanpenner/es6-promise).
 
 

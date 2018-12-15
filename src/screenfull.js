@@ -113,7 +113,6 @@
 
 				this.on('change', onFullScreenExit);
 			}.bind(this));
-			
 		},
 		toggle: function (elem) {
 			if (this.isFullscreen) {
