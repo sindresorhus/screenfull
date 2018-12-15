@@ -100,7 +100,7 @@
 				}
 
 				this.on('change', onFullScreenEntered);
-			}.bind(this))
+			}.bind(this));
 		},
 		exit: function () {
 			return new Promise(function (resolve) {
@@ -115,11 +115,7 @@
 			}.bind(this));
 		},
 		toggle: function (elem) {
-			if (this.isFullscreen) {
-				return this.exit();
-			} else {
-				return this.request(elem);
-			}
+			return this.isFullscreen ? this.exit() : this.request(elem);
 		},
 		onchange: function (callback) {
 			this.on('change', callback);
