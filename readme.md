@@ -71,9 +71,7 @@ if (document.fullscreenEnabled) {
 **Note:** In order to use this package in Internet Explorer, you need a [`Promise` polyfill](https://github.com/stefanpenner/es6-promise).
 
 
-
 ## Documentation
-
 
 ### Examples
 
