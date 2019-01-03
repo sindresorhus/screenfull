@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v4.0.0 - 2018-12-15
+* v4.0.0 - 2019-01-03
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -101,7 +101,7 @@
 				if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
 					elem[request]();
 				} else {
-					elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
+					elem[request]({});
 				}
 
 				this.on('change', onFullScreenEntered);
