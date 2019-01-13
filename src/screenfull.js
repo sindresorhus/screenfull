@@ -109,9 +109,17 @@
 					resolve();
 				}.bind(this);
 
-				document[fn.exitFullscreen]();
-
-				this.on('change', onFullScreenExit);
+				if (this.isFullscreen) {
+						return document[fn.exitFullscreen]()
+							.then(function () {
+								this.on('change', onFullScreenExit)
+							}.bind(this), function (err) {
+								if (err) {
+									throw new Error(err);
+								}
+							});
+				}
+				return resolve();
 			}.bind(this));
 		},
 		toggle: function (elem) {
