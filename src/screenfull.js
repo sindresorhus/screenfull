@@ -104,6 +104,11 @@
 		},
 		exit: function () {
 			return new Promise(function (resolve) {
+				if (!this.isFullscreen) {
+					resolve();
+					return;
+				}
+
 				var onFullScreenExit = function () {
 					this.off('change', onFullScreenExit);
 					resolve();
