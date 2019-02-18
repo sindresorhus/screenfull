@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v4.0.0 - 2018-12-15
+* v4.0.1 - 2019-02-18
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -109,6 +109,11 @@
 		},
 		exit: function () {
 			return new Promise(function (resolve) {
+				if (!this.isFullscreen) {
+					resolve();
+					return;
+				}
+
 				var onFullScreenExit = function () {
 					this.off('change', onFullScreenExit);
 					resolve();
