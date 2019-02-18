@@ -113,13 +113,14 @@
 						return document[fn.exitFullscreen]()
 							.then(function () {
 								this.on('change', onFullScreenExit)
-							}.bind(this), function (err) {
-								if (err) {
-									throw new Error(err);
+							}.bind(this), function (error) {
+								if (error) {
+									throw new Error(error);
 								}
 							});
 				}
-				return resolve();
+
+				resolve();
 			}.bind(this));
 		},
 		toggle: function (elem) {
