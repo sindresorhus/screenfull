@@ -37,7 +37,7 @@ export interface Screenfull {
 	 *
 	 * Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 	 *
-	 * @param element Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+	 * @param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
 	 * @returns A promise that resolves after the element enters fullscreen.
 	 */
 	request(element?: Element): Promise<void>;
