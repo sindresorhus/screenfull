@@ -176,6 +176,7 @@
 
 	if (isCommonjs) {
 		module.exports = screenfull;
+		module.exports.default = screenfull;
 	} else {
 		window.screenfull = screenfull;
 	}
