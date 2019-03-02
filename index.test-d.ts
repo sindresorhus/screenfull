@@ -7,12 +7,12 @@ if (screenfull) {
 	expectType<Element | null>(screenfull.element);
 
 	if (screenfull.enabled) {
-		const elem: Element = document.getElementById('target')!;
+		const element: Element = document.getElementById('target')!;
 
 		expectType<Promise<void>>(screenfull.request());
-		expectType<Promise<void>>(screenfull.request(elem));
+		expectType<Promise<void>>(screenfull.request(element));
 		expectType<Promise<void>>(screenfull.toggle());
-		expectType<Promise<void>>(screenfull.toggle(elem));
+		expectType<Promise<void>>(screenfull.toggle(element));
 		expectType<Promise<void>>(screenfull.exit());
 
 		screenfull.on('change', event => expectType<Event>(event));
