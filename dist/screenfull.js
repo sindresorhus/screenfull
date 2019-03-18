@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v4.0.1 - 2019-02-18
+* v4.0.1 - 2019-03-18
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -181,6 +181,7 @@
 
 	if (isCommonjs) {
 		module.exports = screenfull;
+		module.exports.default = screenfull;
 	} else {
 		window.screenfull = screenfull;
 	}

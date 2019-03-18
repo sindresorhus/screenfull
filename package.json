@@ -15,8 +15,9 @@
 	"main": "dist/screenfull.js",
 	"files": [
 		"dist/screenfull.js",
-		"index.d.ts"
+		"dist/screenfull.d.ts"
 	],
+	"types": "dist/screenfull.d.ts",
 	"keywords": [
 		"browser",
 		"fullscreen"
@@ -24,12 +25,14 @@
 	"devDependencies": {
 		"grunt": "^1.0.1",
 		"grunt-contrib-concat": "^1.0.0",
+		"grunt-contrib-copy": "^1.0.0",
 		"grunt-contrib-uglify": "^4.0.0",
 		"load-grunt-tasks": "^4.0.0",
-		"tsd-check": "^0.3.0",
+		"tsd-check": "^0.5.0",
 		"xo": "^0.16.0"
 	},
 	"scripts": {
+		"pretest": "grunt",
 		"test": "xo && tsd-check"
 	},
 	"xo": {
