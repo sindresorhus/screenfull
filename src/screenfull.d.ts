@@ -11,7 +11,7 @@ export type EventName = 'change' | 'error';
 
 export interface Screenfull {
 	/**
-	A boolean whether fullscreen is active.
+	Whether fullscreen is active.
 	*/
 	readonly isFullscreen: boolean;
 
@@ -21,7 +21,7 @@ export interface Screenfull {
 	readonly element: Element | null;
 
 	/**
-	A boolean whether you are allowed to enter fullscreen. If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
+	Whether you are allowed to enter fullscreen. If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
 	*/
 	readonly enabled: boolean;
 
@@ -38,21 +38,21 @@ export interface Screenfull {
 	Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
 	@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
-	@returns Resolves after the element enters fullscreen.
+	@returns A promise that resolves after the element enters fullscreen.
 	*/
 	request(element?: Element): Promise<void>;
 
 	/**
 	Brings you out of fullscreen.
 
-	@returns Resolves after the element exits fullscreen.
+	@returns A promise that resolves after the element exits fullscreen.
 	*/
 	exit(): Promise<void>;
 
 	/**
 	Requests fullscreen if not active, otherwise exits.
 
-	@returns Resolves after the element enters/exits fullscreen.
+	@returns A promise that resolves after the element enters/exits fullscreen.
 	*/
 	toggle(element?: Element): Promise<void>;
 

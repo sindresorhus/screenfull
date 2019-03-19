@@ -9,15 +9,18 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "sindresorhus.com"
 	},
+	"main": "dist/screenfull.js",
 	"engines": {
 		"node": ">=0.10.0"
 	},
-	"main": "dist/screenfull.js",
+	"scripts": {
+		"pretest": "grunt",
+		"test": "xo && tsd-check"
+	},
 	"files": [
 		"dist/screenfull.js",
 		"dist/screenfull.d.ts"
 	],
-	"types": "dist/screenfull.d.ts",
 	"keywords": [
 		"browser",
 		"fullscreen"
@@ -31,10 +34,7 @@
 		"tsd-check": "^0.5.0",
 		"xo": "^0.16.0"
 	},
-	"scripts": {
-		"pretest": "grunt",
-		"test": "xo && tsd-check"
-	},
+	"types": "dist/screenfull.d.ts",
 	"xo": {
 		"envs": [
 			"node",

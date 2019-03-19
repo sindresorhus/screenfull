@@ -15,12 +15,29 @@ if (screenfull) {
 		expectType<Promise<void>>(screenfull.toggle(element));
 		expectType<Promise<void>>(screenfull.exit());
 
-		screenfull.on('change', event => expectType<Event>(event));
-		screenfull.on('error', event => expectType<Event>(event));
-		screenfull.off('change', event => expectType<Event>(event));
-		screenfull.off('error', event => expectType<Event>(event));
-		screenfull.onchange(event => expectType<Event>(event));
-		screenfull.onerror(event => expectType<Event>(event));
+		screenfull.on('change', event => {
+			expectType<Event>(event);
+		});
+
+		screenfull.on('error', event => {
+			expectType<Event>(event);
+		});
+
+		screenfull.off('change', event => {
+			expectType<Event>(event);
+		});
+
+		screenfull.off('error', event => {
+			expectType<Event>(event);
+		});
+
+		screenfull.onchange(event => {
+			expectType<Event>(event);
+		});
+
+		screenfull.onerror(event => {
+			expectType<Event>(event);
+		});
 
 		expectType<string>(screenfull.raw.requestFullscreen);
 		expectType<string>(screenfull.raw.exitFullscreen);
