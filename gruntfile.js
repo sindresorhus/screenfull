@@ -33,11 +33,20 @@ module.exports = grunt => {
 					'dist/screenfull.min.js': 'src/screenfull.js'
 				}
 			}
+		},
+		copy: {
+			dist: {
+				files: {
+					'dist/screenfull.d.ts': 'src/screenfull.d.ts',
+					'dist/screenfull.test-d.ts': 'src/screenfull.test-d.ts'
+				}
+			}
 		}
 	});
 
 	grunt.registerTask('default', [
 		'concat',
-		'uglify'
+		'uglify',
+		'copy'
 	]);
 };
