@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v4.0.1 - 2019-03-19
+* v4.1.0 - 2019-03-19
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
