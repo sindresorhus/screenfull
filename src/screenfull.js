@@ -93,15 +93,20 @@
 				// keyboard in fullscreen even though it doesn't.
 				// Browser sniffing, since the alternative with
 				// setTimeout is even worse.
+				let result;
 				if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
-					return (elem[request]()).then(() => {
-						this.on('change', onFullScreenEntered);
-					});
+					result = elem[request]();
 				} else {
-					(elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {})).then(() => {
+					result = elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
+				}
+				
+				if (!(result instanceof Promise)) {
+					result = Promise.resolve(result);
+				}
+				
+				return result.then(() => {
 						this.on('change', onFullScreenEntered);
 					});
-				}
 			}.bind(this));
 		},
 		exit: function () {
