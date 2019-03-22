@@ -94,12 +94,14 @@
 				// Browser sniffing, since the alternative with
 				// setTimeout is even worse.
 				if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
-					elem[request]();
+					return (elem[request]()).then(() => {
+						this.on('change', onFullScreenEntered);
+					});
 				} else {
-					elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
+					(elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {})).then(() => {
+						this.on('change', onFullScreenEntered);
+					});
 				}
-
-				this.on('change', onFullScreenEntered);
 			}.bind(this));
 		},
 		exit: function () {
