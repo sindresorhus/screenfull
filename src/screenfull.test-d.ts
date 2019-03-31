@@ -1,5 +1,5 @@
-import {expectType} from 'tsd-check';
-import screenfull from '../dist/screenfull';
+import {expectType} from 'tsd';
+import screenfull = require('..');
 
 if (screenfull) {
 	expectType<boolean>(screenfull.enabled);
