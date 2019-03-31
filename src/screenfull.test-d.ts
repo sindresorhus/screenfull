@@ -1,5 +1,6 @@
 import {expectType} from 'tsd';
 import screenfull = require('..');
+import {RawEventNames} from '..';
 
 if (screenfull) {
 	expectType<boolean>(screenfull.enabled);
@@ -39,6 +40,7 @@ if (screenfull) {
 			expectType<Event>(event);
 		});
 
+		expectType<RawEventNames>(screenfull.raw);
 		expectType<string>(screenfull.raw.requestFullscreen);
 		expectType<string>(screenfull.raw.exitFullscreen);
 		expectType<string>(screenfull.raw.fullscreenElement);
