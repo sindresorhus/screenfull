@@ -79,7 +79,7 @@
 
 	var screenfull = {
 		request: function (elem) {
-			return new Promise(function (resolve) {
+			return new Promise(function (resolve, reject) {
 				var request = fn.requestFullscreen;
 
 				var onFullScreenEntered = function () {
@@ -87,19 +87,23 @@
 					resolve();
 				}.bind(this);
 
+				this.on('change', onFullScreenEntered);
+
 				elem = elem || document.documentElement;
+
+				var promise;
 
 				// Work around Safari 5.1 bug: reports support for
 				// keyboard in fullscreen even though it doesn't.
 				// Browser sniffing, since the alternative with
 				// setTimeout is even worse.
 				if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
-					elem[request]();
+					promise = elem[request]();
 				} else {
-					elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
+					promise = elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
 				}
 
-				this.on('change', onFullScreenEntered);
+				Promise.resolve(promise).catch(reject);
 			}.bind(this));
 		},
 		exit: function () {
