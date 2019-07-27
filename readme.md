@@ -70,6 +70,8 @@ if (document.fullscreenEnabled) {
 
 **Note:** In order to use this package in Internet Explorer, you need a [`Promise` polyfill](https://github.com/stefanpenner/es6-promise).
 
+iPhone is not supported.
+
 
 ## Documentation
 
@@ -278,8 +280,3 @@ $('#new-page-btn').click(() => {
 - [MDN - Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode)
 - [W3C Fullscreen spec](http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html)
 - [Building an amazing fullscreen mobile experience](http://www.html5rocks.com/en/mobile/fullscreen/)
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
