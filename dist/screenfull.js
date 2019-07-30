@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v4.2.1 - 2019-07-27
+* v4.2.1 - 2019-07-30
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -8,7 +8,6 @@
 
 	var document = typeof window !== 'undefined' && typeof window.document !== 'undefined' ? window.document : {};
 	var isCommonjs = typeof module !== 'undefined' && module.exports;
-	var keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
 
 	var fn = (function () {
 		var val;
@@ -83,7 +82,13 @@
 	};
 
 	var screenfull = {
-		request: function (elem) {
+		request: function (options) {
+			var defaults = {
+				element: document.documentElement,
+				fullscreenOptions: {navigationUI: 'auto'}
+			};
+			options = Object.assign({}, defaults, options);
+
 			return new Promise(function (resolve, reject) {
 				var request = fn.requestFullscreen;
 
@@ -94,19 +99,7 @@
 
 				this.on('change', onFullScreenEntered);
 
-				elem = elem || document.documentElement;
-
-				var promise;
-
-				// Work around Safari 5.1 bug: reports support for
-				// keyboard in fullscreen even though it doesn't.
-				// Browser sniffing, since the alternative with
-				// setTimeout is even worse.
-				if (/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)) {
-					promise = elem[request]();
-				} else {
-					promise = elem[request](keyboardAllowed ? Element.ALLOW_KEYBOARD_INPUT : {});
-				}
+				var promise = options.element[request](options.fullscreenOptions);
 
 				Promise.resolve(promise).catch(reject);
 			}.bind(this));

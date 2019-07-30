@@ -12,6 +12,20 @@ declare namespace screenfull {
 
 	type EventName = 'change' | 'error';
 
+	interface RequestOptions {
+		/**
+		If called with another element than the currently active, it will switch to that if it's a decendant.
+		@default document.documentElement
+		*/
+		readonly element?: Element;
+		
+		/**
+		Whether or not to show navigation UI while the element is in full-screen mode.
+		@default {navigationUI: 'auto'}
+		*/
+		readonly fullscreenOptions?: FullscreenOptions;
+	}
+
 	interface Screenfull {
 		/**
 		Whether fullscreen is active.
@@ -47,7 +61,7 @@ declare namespace screenfull {
 
 		Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
-		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+		@param RequestOptions
 		@returns A promise that resolves after the element enters fullscreen.
 
 		@example
@@ -66,7 +80,7 @@ declare namespace screenfull {
 
 		document.getElementById('button').addEventListener('click', () => {
 			if (screenfull.enabled) {
-				screenfull.request(el);
+				screenfull.request({element: el});
 			}
 		});
 
@@ -75,12 +89,12 @@ declare namespace screenfull {
 
 		$('#button').on('click', () => {
 			if (screenfull.enabled) {
-				screenfull.request(target);
+				screenfull.request({element: target});
 			}
 		});
 		```
 		*/
-		request(element?: Element): Promise<void>;
+		request(options?: RequestOptions): Promise<void>;
 
 		/**
 		Brings you out of fullscreen.

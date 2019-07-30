@@ -8,10 +8,14 @@ if (screenfull) {
 	expectType<Element | null>(screenfull.element);
 
 	if (screenfull.enabled) {
-		const element: Element = document.getElementById('target')!;
+		const element : Element = document.getElementById('target')!;
+		const options : screenfull.RequestOptions = {
+			element: element,
+			fullscreenOptions: {navigationUI: 'auto'}
+		};
 
 		expectType<Promise<void>>(screenfull.request());
-		expectType<Promise<void>>(screenfull.request(element));
+		expectType<Promise<void>>(screenfull.request(options));
 		expectType<Promise<void>>(screenfull.toggle());
 		expectType<Promise<void>>(screenfull.toggle(element));
 		expectType<Promise<void>>(screenfull.exit());
