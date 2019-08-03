@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v4.2.1 - 2019-07-27
+* v4.2.1 - 2019-08-03
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -154,9 +154,9 @@
 
 	if (!fn) {
 		if (isCommonjs) {
-			module.exports = false;
+			module.exports = {enabled: false};
 		} else {
-			window.screenfull = false;
+			window.screenfull = {enabled: false};
 		}
 
 		return;

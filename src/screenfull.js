@@ -149,9 +149,9 @@
 
 	if (!fn) {
 		if (isCommonjs) {
-			module.exports = false;
+			module.exports = {enabled: false};
 		} else {
-			window.screenfull = false;
+			window.screenfull = {enabled: false};
 		}
 
 		return;

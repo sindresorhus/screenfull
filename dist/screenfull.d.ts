@@ -159,7 +159,7 @@ declare const screenfull:
 			// TODO: remove this in the next major version
 			default: typeof screenfull;
 	  })
-	| false;
+	| {enabled: false};
 
 export = screenfull;
 export as namespace screenfull;
