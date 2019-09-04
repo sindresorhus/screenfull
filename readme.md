@@ -4,15 +4,9 @@
 
 **This package is feature complete. No new changes will be accepted.**
 
----
-
-<p align="center"><b>🔥 Want to strengthen your core JavaScript skills and master ES6?</b><br>I would personally recommend this awesome <a href="https://ES6.io/friend/AWESOME">ES6 course</a> by Wes Bos.</p>
-
----
-
 ### [Demo](https://sindresorhus.com/screenfull.js)
 
-### [Check out my other projects](https://github.com/sindresorhus?tab=repositories)
+### [Check out my other projects](https://github.com/sindresorhus)
 
 
 ## Install
@@ -21,8 +15,8 @@ Only 0.7 kB gzipped.
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.min.js
-[max]: https://github.com/sindresorhus/screenfull.js/raw/gh-pages/dist/screenfull.js
+[min]: https://github.com/sindresorhus/screenfull.js/raw/master/dist/screenfull.min.js
+[max]: https://github.com/sindresorhus/screenfull.js/raw/master/dist/screenfull.js
 
 ```
 $ npm install screenfull
@@ -44,7 +38,10 @@ if (screenfull.enabled) {
 ### Vanilla JavaScript
 
 ```js
-document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
+document.fullscreenEnabled =
+	document.fullscreenEnabled ||
+	document.mozFullScreenEnabled ||
+	document.documentElement.webkitRequestFullScreen;
 
 function requestFullscreen(element) {
 	if (element.requestFullscreen) {
@@ -60,7 +57,7 @@ if (document.fullscreenEnabled) {
 	requestFullscreen(document.documentElement);
 }
 
-// Actually it's more if you want it to work in Safari, but let's not go there...
+// This is not even entirely comprehensive. There's more.
 ```
 
 
@@ -92,11 +89,11 @@ document.getElementById('button').addEventListener('click', () => {
 #### Fullscreen an element
 
 ```js
-const el = document.getElementById('target');
+const element = document.getElementById('target');
 
 document.getElementById('button').addEventListener('click', () => {
 	if (screenfull.enabled) {
-		screenfull.request(el);
+		screenfull.request(element);
 	}
 });
 ```
@@ -104,11 +101,11 @@ document.getElementById('button').addEventListener('click', () => {
 #### Fullscreen an element with jQuery
 
 ```js
-const target = $('#target')[0]; // Get DOM element from jQuery collection
+const element = $('#target')[0]; // Get DOM element from jQuery collection
 
 $('#button').on('click', () => {
 	if (screenfull.enabled) {
-		screenfull.request(target);
+		screenfull.request(element);
 	}
 });
 ```
@@ -164,7 +161,7 @@ You can use the [Angular.js binding](https://github.com/hrajchert/angular-screen
 
 #### Fullscreen the page with Angular 2
 
-```typescript
+```ts
 import {Directive, HostListener} from '@angular/core';
 import screenfull = require('screenfull');
 
@@ -184,7 +181,8 @@ export class ToggleFullscreenDirective {
 <button toggleFullscreen>Toggle fullscreen<button>
 ```
 
-### Methods
+
+### API
 
 #### .request()
 
@@ -212,7 +210,7 @@ Returns a promise that resolves after the element enters/exits fullscreen.
 
 #### .on(event, function)
 
-Events: `change` `error`
+Events: `'change' | 'error'`
 
 Add a listener for when the browser switches in and out of fullscreen or when there is an error.
 
@@ -227,8 +225,6 @@ Alias for `.on('change', function)`
 #### .onerror(function)
 
 Alias for `.on('error', function)`
-
-### Properties
 
 #### .isFullscreen
 

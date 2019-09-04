@@ -62,20 +62,20 @@ declare namespace screenfull {
 		});
 
 		// Fullscreen an element
-		const el = document.getElementById('target');
+		const element = document.getElementById('target');
 
 		document.getElementById('button').addEventListener('click', () => {
 			if (screenfull.enabled) {
-				screenfull.request(el);
+				screenfull.request(element);
 			}
 		});
 
 		// Fullscreen an element with jQuery
-		const target = $('#target')[0]; // Get DOM element from jQuery collection
+		const element = $('#target')[0]; // Get DOM element from jQuery collection
 
 		$('#button').on('click', () => {
 			if (screenfull.enabled) {
-				screenfull.request(target);
+				screenfull.request(element);
 			}
 		});
 		```
