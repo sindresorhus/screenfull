@@ -70,7 +70,7 @@ if (document.fullscreenEnabled) {
 
 **Note:** In order to use this package in Internet Explorer, you need a [`Promise` polyfill](https://github.com/stefanpenner/es6-promise).
 
-iPhone is not supported.
+**Note:** Safari is supported on desktop and iPad, but not on iPhone. This is a limitation in the browser, not in Screenfull.
 
 
 ## Documentation
