@@ -148,9 +148,9 @@
 		<script src="src/screenfull.js"></script>
 		<script>
 		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+			$('#supported').text('Supported/allowed: ' + !!screenfull.isEnabled);
 
-			if (!screenfull.enabled) {
+			if (!screenfull.isEnabled) {
 				return false;
 			}
 

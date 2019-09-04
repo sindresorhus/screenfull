@@ -3,11 +3,11 @@ import screenfull = require('..');
 import {RawEventNames} from '..';
 
 if (screenfull) {
-	expectType<boolean>(screenfull.enabled);
+	expectType<boolean>(screenfull.isEnabled);
 	expectType<boolean>(screenfull.isFullscreen);
 	expectType<Element | null>(screenfull.element);
 
-	if (screenfull.enabled) {
+	if (screenfull.isEnabled) {
 		const element: Element = document.getElementById('target')!;
 
 		expectType<Promise<void>>(screenfull.request());

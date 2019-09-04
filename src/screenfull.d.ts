@@ -28,12 +28,12 @@ declare namespace screenfull {
 
 		@example
 		```
-		if (screenfull.enabled) {
+		if (screenfull.isEnabled) {
 			screenfull.request();
 		}
 		```
 		*/
-		readonly enabled: boolean;
+		readonly isEnabled: boolean;
 
 		/**
 		Exposes the raw properties (prefixed if needed) used internally.
@@ -54,7 +54,7 @@ declare namespace screenfull {
 		```
 		// Fullscreen the page
 		document.getElementById('button').addEventListener('click', () => {
-			if (screenfull.enabled) {
+			if (screenfull.isEnabled) {
 				screenfull.request();
 			} else {
 				// Ignore or do something else
@@ -65,7 +65,7 @@ declare namespace screenfull {
 		const element = document.getElementById('target');
 
 		document.getElementById('button').addEventListener('click', () => {
-			if (screenfull.enabled) {
+			if (screenfull.isEnabled) {
 				screenfull.request(element);
 			}
 		});
@@ -74,7 +74,7 @@ declare namespace screenfull {
 		const element = $('#target')[0]; // Get DOM element from jQuery collection
 
 		$('#button').on('click', () => {
-			if (screenfull.enabled) {
+			if (screenfull.isEnabled) {
 				screenfull.request(element);
 			}
 		});
@@ -99,7 +99,7 @@ declare namespace screenfull {
 		// Toggle fullscreen on a image with jQuery
 
 		$('img').on('click', event => {
-			if (screenfull.enabled) {
+			if (screenfull.isEnabled) {
 				screenfull.toggle(event.target);
 			}
 		});
@@ -113,14 +113,14 @@ declare namespace screenfull {
 		@example
 		```
 		// Detect fullscreen change
-		if (screenfull.enabled) {
+		if (screenfull.isEnabled) {
 			screenfull.on('change', () => {
 				console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
 			});
 		}
 
 		// Detect fullscreen error
-		if (screenfull.enabled) {
+		if (screenfull.isEnabled) {
 			screenfull.on('error', event => {
 				console.error('Failed to enable fullscreen', event);
 			});

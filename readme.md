@@ -30,7 +30,7 @@ Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
 ### Screenfull
 
 ```js
-if (screenfull.enabled) {
+if (screenfull.isEnabled) {
 	screenfull.request();
 }
 ```
@@ -78,7 +78,7 @@ if (document.fullscreenEnabled) {
 
 ```js
 document.getElementById('button').addEventListener('click', () => {
-	if (screenfull.enabled) {
+	if (screenfull.isEnabled) {
 		screenfull.request();
 	} else {
 		// Ignore or do something else
@@ -92,7 +92,7 @@ document.getElementById('button').addEventListener('click', () => {
 const element = document.getElementById('target');
 
 document.getElementById('button').addEventListener('click', () => {
-	if (screenfull.enabled) {
+	if (screenfull.isEnabled) {
 		screenfull.request(element);
 	}
 });
@@ -104,7 +104,7 @@ document.getElementById('button').addEventListener('click', () => {
 const element = $('#target')[0]; // Get DOM element from jQuery collection
 
 $('#button').on('click', () => {
-	if (screenfull.enabled) {
+	if (screenfull.isEnabled) {
 		screenfull.request(element);
 	}
 });
@@ -114,7 +114,7 @@ $('#button').on('click', () => {
 
 ```js
 $('img').on('click', event => {
-	if (screenfull.enabled) {
+	if (screenfull.isEnabled) {
 		screenfull.toggle(event.target);
 	}
 });
@@ -123,7 +123,7 @@ $('img').on('click', event => {
 #### Detect fullscreen change
 
 ```js
-if (screenfull.enabled) {
+if (screenfull.isEnabled) {
 	screenfull.on('change', () => {
 		console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
 	});
@@ -139,7 +139,7 @@ screenfull.off('change', callback);
 #### Detect fullscreen error
 
 ```js
-if (screenfull.enabled) {
+if (screenfull.isEnabled) {
 	screenfull.on('error', event => {
 		console.error('Failed to enable fullscreen', event);
 	});
@@ -170,7 +170,7 @@ import screenfull = require('screenfull');
 })
 export class ToggleFullscreenDirective {
 	@HostListener('click') onClick() {
-		if (screenfull.enabled) {
+		if (screenfull.isEnabled) {
 			screenfull.toggle();
 		}
 	}
@@ -234,7 +234,7 @@ Returns a boolean whether fullscreen is active.
 
 Returns the element currently in fullscreen, otherwise `null`.
 
-#### .enabled
+#### .isEnabled
 
 Returns a boolean whether you are allowed to enter fullscreen. If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
 

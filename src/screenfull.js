@@ -154,7 +154,7 @@
 				return document[fn.fullscreenElement];
 			}
 		},
-		enabled: {
+		isEnabled: {
 			enumerable: true,
 			get: function () {
 				// Coerce to boolean in case of old WebKit
