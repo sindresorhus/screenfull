@@ -15,12 +15,14 @@ declare namespace screenfull {
 	interface RequestOptions {
 		/**
 		If called with another element than the currently active, it will switch to that if it's a decendant.
+
 		@default document.documentElement
 		*/
 		readonly element?: Element;
 		
 		/**
 		Whether or not to show navigation UI while the element is in full-screen mode.
+
 		@default {navigationUI: 'auto'}
 		*/
 		readonly fullscreenOptions?: FullscreenOptions;
@@ -61,7 +63,6 @@ declare namespace screenfull {
 
 		Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
-		@param RequestOptions
 		@returns A promise that resolves after the element enters fullscreen.
 
 		@example
@@ -76,11 +77,11 @@ declare namespace screenfull {
 		});
 
 		// Fullscreen an element
-		const el = document.getElementById('target');
+		const element = document.getElementById('target');
 
 		document.getElementById('button').addEventListener('click', () => {
 			if (screenfull.enabled) {
-				screenfull.request({element: el});
+				screenfull.request({element});
 			}
 		});
 
