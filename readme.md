@@ -30,7 +30,7 @@ Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
 ### Screenfull
 
 ```js
-if (screenfull.isEnabled) {
+if (screenfull.enabled) {
 	screenfull.request();
 }
 ```
