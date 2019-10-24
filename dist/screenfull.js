@@ -1,6 +1,6 @@
 /*!
 * screenfull
-* v5.0.0 - 2019-09-09
+* v5.0.0 - 2019-10-24
 * (c) Sindre Sorhus; MIT License
 */
 (function () {
@@ -23,7 +23,7 @@
 			],
 			// New WebKit
 			[
-				'webkitRequestFullscreen',
+				'webkitEnterFullscreen',
 				'webkitExitFullscreen',
 				'webkitFullscreenElement',
 				'webkitFullscreenEnabled',
@@ -33,7 +33,7 @@
 			],
 			// Old WebKit
 			[
-				'webkitRequestFullScreen',
+				'webkitEnterFullScreen',
 				'webkitCancelFullScreen',
 				'webkitCurrentFullScreenElement',
 				'webkitCancelFullScreen',

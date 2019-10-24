@@ -18,7 +18,7 @@
 			],
 			// New WebKit
 			[
-				'webkitRequestFullscreen',
+				'webkitEnterFullscreen',
 				'webkitExitFullscreen',
 				'webkitFullscreenElement',
 				'webkitFullscreenEnabled',
@@ -28,7 +28,7 @@
 			],
 			// Old WebKit
 			[
-				'webkitRequestFullScreen',
+				'webkitEnterFullScreen',
 				'webkitCancelFullScreen',
 				'webkitCurrentFullScreenElement',
 				'webkitCancelFullScreen',
