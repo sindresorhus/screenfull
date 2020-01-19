@@ -33,7 +33,7 @@ declare namespace screenfull {
 		}
 		```
 		*/
-		readonly isEnabled: boolean;
+		readonly isEnabled: true;
 
 		/**
 		Exposes the raw properties (prefixed if needed) used internally.

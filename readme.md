@@ -2,7 +2,7 @@
 
 > Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have to.
 
-**This package is feature complete. No new changes will be accepted.**
+**This package is feature complete. No new features will be accepted.**
 
 #### [Demo](https://sindresorhus.com/screenfull.js)
 
@@ -50,7 +50,6 @@ $ npm install screenfull
 
 Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
 
-
 ## Why?
 
 ### Screenfull
@@ -86,7 +85,6 @@ if (document.fullscreenEnabled) {
 // This is not even entirely comprehensive. There's more.
 ```
 
-
 ## Support
 
 [Supported browsers](http://caniuse.com/fullscreen)
@@ -94,7 +92,6 @@ if (document.fullscreenEnabled) {
 **Note:** In order to use this package in Internet Explorer, you need a [`Promise` polyfill](https://github.com/stefanpenner/es6-promise).
 
 **Note:** Safari is supported on desktop and iPad, but not on iPhone. This is a limitation in the browser, not in Screenfull.
-
 
 ## Documentation
 
@@ -207,7 +204,6 @@ export class ToggleFullscreenDirective {
 <button toggleFullscreen>Toggle fullscreen<button>
 ```
 
-
 ### API
 
 #### .request()
@@ -268,7 +264,6 @@ Returns a boolean whether you are allowed to enter fullscreen. If your page is i
 
 Exposes the raw properties (prefixed if needed) used internally: `requestFullscreen`, `exitFullscreen`, `fullscreenElement`, `fullscreenEnabled`, `fullscreenchange`, `fullscreenerror`
 
-
 ## FAQ
 
 ### How can I navigate to a new page when fullscreen?
@@ -294,7 +289,6 @@ $('#new-page-btn').click(() => {
 	document.body.style.overflow = 'hidden';
 });
 ```
-
 
 ## Resources
 
