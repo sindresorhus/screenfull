@@ -88,7 +88,11 @@
 
 				element = element || document.documentElement;
 
-				Promise.resolve(element[fn.requestFullscreen]()).catch(reject);
+				var returnPromise = element[fn.requestFullscreen]();
+
+				if (returnPromise instanceof Promise) {
+					returnPromise.then(onFullScreenEntered).catch(reject);
+				}
 			}.bind(this));
 		},
 		exit: function () {
@@ -105,7 +109,11 @@
 
 				this.on('change', onFullScreenExit);
 
-				Promise.resolve(document[fn.exitFullscreen]()).catch(reject);
+				var returnPromise = document[fn.exitFullscreen]();
+
+				if (returnPromise instanceof Promise) {
+					returnPromise.then(onFullScreenExit).catch(reject);
+				}
 			}.bind(this));
 		},
 		toggle: function (element) {
