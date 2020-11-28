@@ -103,7 +103,7 @@ declare namespace screenfull {
 		Requests fullscreen if not active, otherwise exits.
 
 		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
-		@param options - FullscreenOptions (https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions)
+		@param options - [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 		@returns A promise that resolves after the element enters/exits fullscreen.
 
 		@example
