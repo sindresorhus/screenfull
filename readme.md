@@ -92,7 +92,7 @@ document.getElementById('button').addEventListener('click', () => {
 });
 ```
 
-#### Hide navigation ui on mobile devices
+#### Hide navigation user-interface on mobile devices
 
 ```js
 const element = document.getElementById('target');
@@ -189,7 +189,7 @@ export class ToggleFullscreenDirective {
 
 ### API
 
-#### .request(element, options)
+#### .request(element, options?)
 
 Make an element fullscreen.
 
