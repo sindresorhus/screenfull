@@ -209,9 +209,11 @@ Brings you out of fullscreen.
 
 Returns a promise that resolves after the element exits fullscreen.
 
-#### .toggle()
+#### .toggle(element, options?)
 
 Requests fullscreen if not active, otherwise exits.
+
+Accepts a DOM element and [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 
 Returns a promise that resolves after the element enters/exits fullscreen.
 
