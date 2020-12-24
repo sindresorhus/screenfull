@@ -48,6 +48,7 @@ declare namespace screenfull {
 		Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
 		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+		@param options - [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 		@returns A promise that resolves after the element enters fullscreen.
 
 		@example
@@ -70,6 +71,15 @@ declare namespace screenfull {
 			}
 		});
 
+		// Fullscreen an element with options
+		const element = document.getElementById('target');
+
+		document.getElementById('button').addEventListener('click', () => {
+			if (screenfull.isEnabled) {
+				screenfull.request(element, {navigationUI: 'hide'});
+			}
+		});
+
 		// Fullscreen an element with jQuery
 		const element = $('#target')[0]; // Get DOM element from jQuery collection
 
@@ -80,7 +90,7 @@ declare namespace screenfull {
 		});
 		```
 		*/
-		request(element?: Element): Promise<void>;
+		request(element?: Element, options?: FullscreenOptions): Promise<void>;
 
 		/**
 		Brings you out of fullscreen.
@@ -92,6 +102,8 @@ declare namespace screenfull {
 		/**
 		Requests fullscreen if not active, otherwise exits.
 
+		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+		@param options - [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 		@returns A promise that resolves after the element enters/exits fullscreen.
 
 		@example
@@ -105,7 +117,7 @@ declare namespace screenfull {
 		});
 		```
 		*/
-		toggle(element?: Element): Promise<void>;
+		toggle(element?: Element, options?: FullscreenOptions): Promise<void>;
 
 		/**
 		Add a listener for when the browser switches in and out of fullscreen or when there is an error.

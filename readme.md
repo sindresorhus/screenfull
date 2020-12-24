@@ -92,6 +92,18 @@ document.getElementById('button').addEventListener('click', () => {
 });
 ```
 
+#### Hide navigation user-interface on mobile devices
+
+```js
+const element = document.getElementById('target');
+
+document.getElementById('button').addEventListener('click', () => {
+	if (screenfull.isEnabled) {
+		screenfull.request(element, {navigationUI: 'hide'});
+	}
+});
+```
+
 #### Fullscreen an element with jQuery
 
 ```js
@@ -177,11 +189,13 @@ export class ToggleFullscreenDirective {
 
 ### API
 
-#### .request()
+#### .request(element, options?)
 
 Make an element fullscreen.
 
-Accepts a DOM element. Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+Accepts a DOM element and [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
+
+The default element is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
 
 If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
 
@@ -195,9 +209,11 @@ Brings you out of fullscreen.
 
 Returns a promise that resolves after the element exits fullscreen.
 
-#### .toggle()
+#### .toggle(element, options?)
 
 Requests fullscreen if not active, otherwise exits.
+
+Accepts a DOM element and [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 
 Returns a promise that resolves after the element enters/exits fullscreen.
 
