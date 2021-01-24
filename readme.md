@@ -14,8 +14,8 @@ Only 0.7 kB gzipped.
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://github.com/sindresorhus/screenfull.js/raw/master/dist/screenfull.min.js
-[max]: https://github.com/sindresorhus/screenfull.js/raw/master/dist/screenfull.js
+[min]: https://github.com/sindresorhus/screenfull.js/raw/main/dist/screenfull.min.js
+[max]: https://github.com/sindresorhus/screenfull.js/raw/main/dist/screenfull.js
 
 ```
 $ npm install screenfull
