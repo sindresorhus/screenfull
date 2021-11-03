@@ -1,6 +1,9 @@
-# screenfull.js
+# screenfull
 
 > Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have to.
+
+**This package is ESM. Please [familiarize](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) yourself with that that implies.**\
+If you cannot use ESM or need to support older browsers without using transpilation, use version 5.2.0.
 
 **[Not supported on iPhone](#support)**
 
@@ -12,22 +15,19 @@
 
 Only 0.7 kB gzipped.
 
-Download the [production version][min] or the [development version][max].
-
-[min]: https://github.com/sindresorhus/screenfull.js/raw/main/dist/screenfull.min.js
-[max]: https://github.com/sindresorhus/screenfull.js/raw/main/dist/screenfull.js
-
-```
-$ npm install screenfull
+```sh
+npm install screenfull
 ```
 
-Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js).
+Also available on [cdnjs](https://cdnjs.com/libraries/screenfull.js/5.1.0) *(older version)*.
 
 ## Why?
 
 ### Screenfull
 
 ```js
+import screenfull from 'screenfull';
+
 if (screenfull.isEnabled) {
 	screenfull.request();
 }
@@ -62,8 +62,6 @@ if (document.fullscreenEnabled) {
 
 [Supported browsers](https://caniuse.com/#feat=fullscreen)
 
-**Note:** In order to use this package in Internet Explorer, you need a [`Promise` polyfill](https://github.com/stefanpenner/es6-promise).
-
 **Note:** Safari is supported on desktop and iPad, but not on iPhone. This is a limitation in the browser, not in Screenfull.
 
 ## Documentation
@@ -73,6 +71,8 @@ if (document.fullscreenEnabled) {
 #### Fullscreen the page
 
 ```js
+import screenfull from 'screenfull';
+
 document.getElementById('button').addEventListener('click', () => {
 	if (screenfull.isEnabled) {
 		screenfull.request();
@@ -85,6 +85,8 @@ document.getElementById('button').addEventListener('click', () => {
 #### Fullscreen an element
 
 ```js
+import screenfull from 'screenfull';
+
 const element = document.getElementById('target');
 
 document.getElementById('button').addEventListener('click', () => {
@@ -97,6 +99,8 @@ document.getElementById('button').addEventListener('click', () => {
 #### Hide navigation user-interface on mobile devices
 
 ```js
+import screenfull from 'screenfull';
+
 const element = document.getElementById('target');
 
 document.getElementById('button').addEventListener('click', () => {
@@ -109,6 +113,8 @@ document.getElementById('button').addEventListener('click', () => {
 #### Fullscreen an element with jQuery
 
 ```js
+import screenfull from 'screenfull';
+
 const element = $('#target')[0]; // Get DOM element from jQuery collection
 
 $('#button').on('click', () => {
@@ -121,6 +127,8 @@ $('#button').on('click', () => {
 #### Toggle fullscreen on a image with jQuery
 
 ```js
+import screenfull from 'screenfull';
+
 $('img').on('click', event => {
 	if (screenfull.isEnabled) {
 		screenfull.toggle(event.target);
@@ -131,6 +139,8 @@ $('img').on('click', event => {
 #### Detect fullscreen change
 
 ```js
+import screenfull from 'screenfull';
+
 if (screenfull.isEnabled) {
 	screenfull.on('change', () => {
 		console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
@@ -141,12 +151,16 @@ if (screenfull.isEnabled) {
 Remove listeners with:
 
 ```js
+import screenfull from 'screenfull';
+
 screenfull.off('change', callback);
 ```
 
 #### Detect fullscreen error
 
 ```js
+import screenfull from 'screenfull';
+
 if (screenfull.isEnabled) {
 	screenfull.on('error', event => {
 		console.error('Failed to enable fullscreen', event);
@@ -171,7 +185,7 @@ You can use the [Angular.js binding](https://github.com/hrajchert/angular-screen
 
 ```ts
 import {Directive, HostListener} from '@angular/core';
-import screenfull = require('screenfull');
+import screenfull from 'screenfull';
 
 @Directive({
 	selector: '[toggleFullscreen]'
@@ -243,7 +257,7 @@ Returns a boolean whether fullscreen is active.
 
 #### .element
 
-Returns the element currently in fullscreen, otherwise `null`.
+Returns the element currently in fullscreen, otherwise `undefined`.
 
 #### .isEnabled
 
@@ -260,7 +274,9 @@ Exposes the raw properties (prefixed if needed) used internally: `requestFullscr
 That's not supported by browsers for security reasons. There is, however, a dirty workaround. Create a seamless iframe that fills the screen and navigate to the page in that instead.
 
 ```js
-$('#new-page-btn').click(() => {
+import screenfull from 'screenfull';
+
+document.querySelector('#new-page-button').addEventListener(() => {
 	const iframe = document.createElement('iframe')
 
 	iframe.setAttribute('id', 'external-iframe');
@@ -274,7 +290,7 @@ $('#new-page-btn').click(() => {
 	iframe.style.width = '100%';
 	iframe.style.height = '100%';
 
-	$(document.body).prepend(iframe);
+	document.body.prepend(iframe);
 	document.body.style.overflow = 'hidden';
 });
 ```

@@ -105,10 +105,6 @@
 	</head>
 	<body>
 		<a id="repo-link" href="https://github.com/sindresorhus/screenfull.js">⬅ Back to the repo</a>
-		<div id="social" class="container">
-			<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text="screenfull.js - Simple wrapper for cross-browser usage of the Fullscreen API" data-via="sindresorhus">Tweet</a>
-			<div class="g-plusone" data-size="medium" data-annotation="none" data-href="https://github.com/sindresorhus/screenfull.js"></div>
-		</div>
 		<section id="container" class="container">
 			<header>
 				<h1>screenfull<span>.js</span></h1>
@@ -136,59 +132,50 @@
 				<img id="demo-img" src="https://sindresorhus.com/unicorn" width="500">
 			</section>
 		</section>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-		<script type="text/javascript">
-		(function() {
-			var po = document.createElement('script'); po.async = true;
-			po.src = 'https://apis.google.com/js/plusone.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		})();
-		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="src/screenfull.js"></script>
-		<script>
+		<script type="module">
+		import screenfull from './index.js';
+
 		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.isEnabled);
+			$('#supported').text(`Supported/allowed: ${screenfull.isEnabled}`);
 
 			if (!screenfull.isEnabled) {
 				return false;
 			}
 
-			$('#request').click(function () {
-				screenfull.request($('#container')[0]).then(function () {
-					console.log('Browser entered fullscreen mode')
-				})
+			$('#request').click(async () => {
+				await screenfull.request($('#container')[0]);
+				console.log('Browser entered fullscreen mode');
+
 				// Does not require jQuery. Can be used like this too:
 				// screenfull.request(document.getElementById('container'));
 			});
 
-			$('#exit').click(function () {
-				screenfull.exit().then(function () {
-					console.log('Browser exited fullscreen mode')
-				});
+			$('#exit').click(async () => {
+				await screenfull.exit();
+				console.log('Browser exited fullscreen mode');
 			});
 
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]).then(function () {
-					console.log('Fullscreen mode: ' + (screenfull.isFullscreen ? 'enabled' : 'disabled'))
-				});
+			$('#toggle').click(async () => {
+				await screenfull.toggle($('#container')[0]);
+				console.log(`Fullscreen mode: ${screenfull.isFullscreen ? 'enabled' : 'disabled'}`);
 			});
 
-			$('#request2').click(function () {
+			$('#request2').click(() => {
 				screenfull.request();
 			});
 
-			$('#demo-img').click(function () {
-				screenfull.toggle(this);
+			$('#demo-img').click(() => {
+				screenfull.toggle($('#demo-img')[0]);
 			});
 
 			function fullscreenchange() {
-				var elem = screenfull.element;
+				const {element} = screenfull;
 
-				$('#status').text('Is fullscreen: ' + screenfull.isFullscreen);
+				$('#status').text(`Is fullscreen: ${screenfull.isFullscreen}`);
 
-				if (elem) {
-					$('#element').text('Element: ' + elem.localName + (elem.id ? '#' + elem.id : ''));
+				if (element) {
+					$('#element').text(`Element: ${element.localName}${element.id ? `#${element.id}` : ''}`);
 				}
 
 				if (!screenfull.isFullscreen) {
@@ -202,12 +189,6 @@
 			// Set the initial values
 			fullscreenchange();
 		});
-		</script>
-		<script>
-			var _gaq=[['_setAccount','UA-25562592-1'],['_trackPageview'],['_trackPageLoadTime']];
-			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-			s.parentNode.insertBefore(g,s)}(document,'script'));
 		</script>
 	</body>
 </html>
