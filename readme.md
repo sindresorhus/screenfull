@@ -197,7 +197,7 @@ Make an element fullscreen.
 
 Accepts a DOM element and [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 
-The default element is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+The default element is `<html>`. If called with another element than the currently active, it will switch to that if it's a descendant.
 
 If your page is inside an `<iframe>` you will need to add a `allowfullscreen` attribute (+ `webkitallowfullscreen` and `mozallowfullscreen`).
 

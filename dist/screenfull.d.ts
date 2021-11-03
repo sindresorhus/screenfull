@@ -47,7 +47,7 @@ declare namespace screenfull {
 
 		Keep in mind that the browser will only enter fullscreen when initiated by user events like click, touch, key.
 
-		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a descendant.
 		@param options - [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 		@returns A promise that resolves after the element enters fullscreen.
 
@@ -102,7 +102,7 @@ declare namespace screenfull {
 		/**
 		Requests fullscreen if not active, otherwise exits.
 
-		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a decendant.
+		@param element - Default is `<html>`. If called with another element than the currently active, it will switch to that if it's a descendant.
 		@param options - [`FullscreenOptions`](https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions).
 		@returns A promise that resolves after the element enters/exits fullscreen.
 
