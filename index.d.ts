@@ -35,7 +35,7 @@ declare const screenfull: {
 	}
 	```
 	*/
-	readonly isEnabled: true;
+	readonly isEnabled: boolean;
 
 	/**
 	Exposes the raw properties (prefixed if needed) used internally.
