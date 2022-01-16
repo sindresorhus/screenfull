@@ -3,7 +3,7 @@
 	"version": "6.0.0",
 	"description": "Simple wrapper for cross-browser usage of the JavaScript Fullscreen API, which lets you bring the page or any element into fullscreen.",
 	"license": "MIT",
-	"repository": "sindresorhus/screenfull.js",
+	"repository": "sindresorhus/screenfull",
 	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",

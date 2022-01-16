@@ -9,7 +9,7 @@ If you cannot use ESM or need to support older browsers without using transpilat
 
 **This package is feature complete. No new features will be accepted.**
 
-#### [Demo](https://sindresorhus.com/screenfull.js)
+#### [Demo](https://sindresorhus.com/screenfull)
 
 ## Install
 
@@ -168,7 +168,7 @@ if (screenfull.isEnabled) {
 }
 ```
 
-See the [demo](https://sindresorhus.com/screenfull.js) for more examples, and view the source.
+See the [demo](https://sindresorhus.com/screenfull) for more examples, and view the source.
 
 #### Fullscreen an element with Angular.js
 
