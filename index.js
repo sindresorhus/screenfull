@@ -48,6 +48,9 @@ const methodMap = [
 ];
 
 const nativeAPI = (() => {
+	if (typeof document === "undefined") {
+		return false;
+	}
 	const unprefixedMethods = methodMap[0];
 	const returnValue = {};
 
@@ -73,7 +76,8 @@ const eventNameMap = {
 // eslint-disable-next-line import/no-mutable-exports
 let screenfull = {
 	// eslint-disable-next-line default-param-last
-	request(element = document.documentElement, options) {
+	request(element, options) {
+		element = element || document.documentElement;
 		return new Promise((resolve, reject) => {
 			const onFullScreenEntered = () => {
 				screenfull.off('change', onFullScreenEntered);
