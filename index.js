@@ -48,6 +48,10 @@ const methodMap = [
 ];
 
 const nativeAPI = (() => {
+	if (typeof document === 'undefined') {
+		return false;
+	}
+
 	const unprefixedMethods = methodMap[0];
 	const returnValue = {};
 
