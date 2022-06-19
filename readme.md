@@ -2,7 +2,7 @@
 
 > Simple wrapper for cross-browser usage of the JavaScript [Fullscreen API](https://developer.mozilla.org/en/DOM/Using_full-screen_mode), which lets you bring the page or any element into fullscreen. Smoothens out the browser implementation differences, so you don't have to.
 
-**This package is ESM. Please [familiarize](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) yourself with that that implies.**\
+**This package is ESM. Please [familiarize](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) yourself with what that implies.**\
 If you cannot use ESM or need to support older browsers without using transpilation, use version 5.2.0.
 
 **[Not supported on iPhone](#support)**
